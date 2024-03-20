@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  archive:
 
     runs-on: ubuntu-latest
 
