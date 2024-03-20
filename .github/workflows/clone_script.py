@@ -9,7 +9,7 @@ repositories = [
     "https://github.com/allordacia/Pwnagotchi-Handshaker",
 ]
 # Directory where the plugins_archive repository is cloned
-archive_directory = "plugins_archive"
+archive_directory = ""
 
 def clone_or_update_repository(repo_url, author):
     author_directory = os.path.join(archive_directory, author)
