@@ -13,9 +13,9 @@ def clone_or_update_repository(repo_url, author, repo_name):
     print(author)
     print(repo_name)
     print(repo_url)
-    author_directory = os.path.join(author, repo_name)
-    if not os.path.exists(author_directory):
-        print(author_directory)
+    #author_directory = os.path.join(author, repo_name)
+    #if not os.path.exists(author_directory):
+        #print(author_directory)
         #os.makedirs(author_directory)
         #subprocess.run(["git", "clone", repo_url, author_directory])
     #else:
@@ -28,7 +28,7 @@ def main():
     for repo_url in repositories:
         author, repo_name = repo_url.split("/")[-2:]
         clone_or_update_repository(repo_url, author, repo_name)
-
+    os.getcwd()
     # Commit and push changes
     #subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     #subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
