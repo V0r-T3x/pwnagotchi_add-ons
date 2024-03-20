@@ -4,7 +4,7 @@ import subprocess
 # List of repositories to include in the archive
 repositories = [
     "https://github.com/rai68/gpsd-easy",
-    "https://github.com/rai68/pwnagotchi-pisugar2-plugin/",
+    "https://github.com/rai68/pwnagotchi-pisugar2-plugin",
     "https://github.com/allordacia/FlipperLink",
     "https://github.com/allordacia/Pwnagotchi-Handshaker",
 ]
