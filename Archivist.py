@@ -25,9 +25,16 @@ def main():
     subprocess.run(["git", "submodule", "init"])
     subprocess.run(["git", "submodule", "update"])
 
-    # Commit and push changes
+    # Set up git configuration
     subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
+    
+    # Set up git credentials
+    subprocess.run(["git", "config", "--local", "credential.helper", "store --file=.git/credentials"])
+    subprocess.run(["git", "config", "--local", "credential.username", "YOUR_GITHUB_USERNAME"])
+    subprocess.run(["git", "config", "--local", "credential.useHttpPath", "true"])
+
+    # Commit and push changes
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "Add submodules"])
     subprocess.run(["git", "push"])
