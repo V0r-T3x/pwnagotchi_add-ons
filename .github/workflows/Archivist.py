@@ -9,11 +9,8 @@ repositories = [
     "https://github.com/allordacia/Pwnagotchi-Handshaker",
 ]
 
-# Directory where the plugins_archive repository is cloned
-archive_directory = "Archive"  # Assuming it's in the root directory of your repository
-
 def clone_or_update_repository(repo_url, author):
-    author_directory = os.path.join(archive_directory, author)
+    author_directory = os.path.join(author)
     if not os.path.exists(author_directory):
         os.makedirs(author_directory)
         subprocess.run(["git", "clone", repo_url, author_directory])
@@ -28,7 +25,6 @@ def main():
         clone_or_update_repository(repo_url, author)
 
     # Commit and push changes
-    os.chdir(archive_directory)
     subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
     subprocess.run(["git", "add", "."])
