@@ -10,11 +10,17 @@ repositories = [
 ]
 
 def add_submodule(repo_url):
-    # Split the URL to extract the repository name
-    repo_name = repo_url.split("/")[-1]
+    # Split the URL to extract the repository owner and name
+    parts = repo_url.strip("/").split("/")
+    author = parts[-2]
+    repo_name = parts[-1]
 
-    # Add the repository as a submodule
-    subprocess.run(["git", "submodule", "add", repo_url, repo_name])
+    # Create the author folder if it doesn't exist
+    if not os.path.exists(author):
+        os.makedirs(author)
+
+    # Add the repository as a submodule within the author folder
+    subprocess.run(["git", "submodule", "add", repo_url, f"{author}/{repo_name}"])
 
 def main():
     # Add repositories as submodules
