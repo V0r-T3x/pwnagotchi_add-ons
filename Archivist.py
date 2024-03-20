@@ -39,11 +39,11 @@ def main():
         #author, repo_name = repo_url.split("/")[-2:]
         clone_or_update_repository(repo_url)
     # Commit and push changes
-    #subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
-    #subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
-    #subprocess.run(["git", "add", "."])
-    #subprocess.run(["git", "commit", "-m", "Update archive"])
-    #subprocess.run(["git", "push"])
+    subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
+    subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
+    subprocess.run(["git", "add", "."])
+    subprocess.run(["git", "commit", "-m", "Update archive"])
+    subprocess.run(["git", "push"])
 
 if __name__ == "__main__":
     main()
