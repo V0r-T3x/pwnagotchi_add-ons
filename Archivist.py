@@ -25,6 +25,7 @@ def clone_or_update_repository(repo_url, author, repo_name):
 def main():
     # Clone or update repositories
     print("Hack The Planet")
+    clone_or_update_repository(repo_url, author, repo_name)
     for repo_url in repositories:
         author, repo_name = repo_url.split("/")[-2:]
     clone_or_update_repository(repo_url, author, repo_name)
