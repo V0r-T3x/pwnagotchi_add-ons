@@ -9,40 +9,27 @@ repositories = [
     "https://github.com/allordacia/Pwnagotchi-Handshaker",
 ]
 
-def clone_or_update_repository(repo_url):
-    # Split the URL to extract the repository owner and name
-    parts = repo_url.strip("/").split("/")
-    if len(parts) == 5:  # If the URL contains both owner and repo name
-        author = parts[-2]
-        repo_name = parts[-1]
-    else:  # If the URL contains only the repo name
-        author = ""
-        repo_name = parts[-1]
+def add_submodule(repo_url):
+    # Split the URL to extract the repository name
+    repo_name = repo_url.split("/")[-1]
 
-    print("Author:", author)
-    print("Repository:", repo_name)
-    print("URL:", repo_url)
-    author_directory = os.path.join(author, repo_name)
-    if not os.path.exists(author_directory):
-        print(author_directory)
-        os.makedirs(author_directory)
-        subprocess.run(["git", "clone", repo_url, author_directory])
-    else:
-        os.chdir(author_directory)
-        subprocess.run(["git", "pull"])
+    # Add the repository as a submodule
+    subprocess.run(["git", "submodule", "add", repo_url, repo_name])
 
 def main():
-    # Clone or update repositories
-    print("Hack The Planet")
-    #print(os.path)
+    # Add repositories as submodules
     for repo_url in repositories:
-        #author, repo_name = repo_url.split("/")[-2:]
-        clone_or_update_repository(repo_url)
+        add_submodule(repo_url)
+
+    # Initialize and update submodules
+    subprocess.run(["git", "submodule", "init"])
+    subprocess.run(["git", "submodule", "update"])
+
     # Commit and push changes
     subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "Update archive"])
+    subprocess.run(["git", "commit", "-m", "Add submodules"])
     subprocess.run(["git", "push"])
 
 if __name__ == "__main__":
