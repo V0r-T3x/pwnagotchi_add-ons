@@ -27,7 +27,7 @@ def main():
     print("Hack The Planet")
     for repo_url in repositories:
         author, repo_name = repo_url.split("/")[-2:]
-        clone_or_update_repository(repo_url, author, repo_name)
+    clone_or_update_repository(repo_url, author, repo_name)
     print(os.getcwd())
     # Commit and push changes
     #subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
