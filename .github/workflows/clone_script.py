@@ -3,14 +3,13 @@ import subprocess
 
 # List of repositories to include in the archive
 repositories = [
-
     "https://github.com/rai68/gpsd-easy",
     "https://github.com/rai68/pwnagotchi-pisugar2-plugin/",
     "https://github.com/allordacia/FlipperLink",
     "https://github.com/allordacia/Pwnagotchi-Handshaker",
 ]
 # Directory where the plugins_archive repository is cloned
-archive_directory = "_plugins_archive"
+archive_directory = "plugins_archive"
 
 def clone_or_update_repository(repo_url, author):
     author_directory = os.path.join(archive_directory, author)
