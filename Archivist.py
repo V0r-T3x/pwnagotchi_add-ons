@@ -22,14 +22,14 @@ def clone_or_update_repository(repo_url):
     print("Author:", author)
     print("Repository:", repo_name)
     print("URL:", repo_url)
-    #author_directory = os.path.join(author, repo_name)
-    #if not os.path.exists(author_directory):
-        #print(author_directory)
-        #os.makedirs(author_directory)
-        #subprocess.run(["git", "clone", repo_url, author_directory])
-    #else:
-        #os.chdir(author_directory)
-        #subprocess.run(["git", "pull"])
+    author_directory = os.path.join(author, repo_name)
+    if not os.path.exists(author_directory):
+        print(author_directory)
+        os.makedirs(author_directory)
+        subprocess.run(["git", "clone", repo_url, author_directory])
+    else:
+        os.chdir(author_directory)
+        subprocess.run(["git", "pull"])
 
 def main():
     # Clone or update repositories
