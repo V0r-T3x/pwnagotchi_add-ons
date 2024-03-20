@@ -10,7 +10,7 @@ repositories = [
 ]
 
 # Directory where the plugins_archive repository is cloned
-archive_directory = "_plugins_archive"  # Assuming it's in the root directory of your repository
+archive_directory = "Archive"  # Assuming it's in the root directory of your repository
 
 def clone_or_update_repository(repo_url, author):
     author_directory = os.path.join(archive_directory, author)
