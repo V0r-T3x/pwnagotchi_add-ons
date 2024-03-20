@@ -20,16 +20,17 @@ def clone_or_update_repository(repo_url, author, repo_name):
 
 def main():
     # Clone or update repositories
-    for repo_url in repositories:
-        author, repo_name = repo_url.split("/")[-2:]
-        clone_or_update_repository(repo_url, author, repo_name)
+    println("Hack The Planet")
+    #for repo_url in repositories:
+    #    author, repo_name = repo_url.split("/")[-2:]
+    #    clone_or_update_repository(repo_url, author, repo_name)
 
     # Commit and push changes
-    subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
-    subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
-    subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "Update archive"])
-    subprocess.run(["git", "push"])
+    #subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
+    #subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
+    #subprocess.run(["git", "add", "."])
+    #subprocess.run(["git", "commit", "-m", "Update archive"])
+    #subprocess.run(["git", "push"])
 
 if __name__ == "__main__":
     main()
