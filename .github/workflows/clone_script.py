@@ -8,8 +8,9 @@ repositories = [
     "https://github.com/allordacia/FlipperLink",
     "https://github.com/allordacia/Pwnagotchi-Handshaker",
 ]
+
 # Directory where the plugins_archive repository is cloned
-archive_directory = ""
+archive_directory = "../.."  # Navigate up two directories from .github/workflows
 
 def clone_or_update_repository(repo_url, author):
     author_directory = os.path.join(archive_directory, author)
