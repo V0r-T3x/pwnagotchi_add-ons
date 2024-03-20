@@ -25,6 +25,7 @@ def main():
         author, repo_name = repo_url.split("/")[-2:]
         print(author)
         print(repo_name)
+    print(repo_url)
     #    clone_or_update_repository(repo_url, author, repo_name)
 
     # Commit and push changes
