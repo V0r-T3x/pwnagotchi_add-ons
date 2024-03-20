@@ -9,7 +9,6 @@ repositories = [
     "https://github.com/allordacia/FlipperLink",
     "https://github.com/allordacia/Pwnagotchi-Handshaker",
 ]
-
 # Directory where the plugins_archive repository is cloned
 archive_directory = "_plugins_archive"
 
