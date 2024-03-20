@@ -10,7 +10,7 @@ repositories = [
 ]
 
 # Directory where the plugins_archive repository is cloned
-archive_directory = "/"  # Navigate up two directories from .github/workflows
+archive_directory = "_plugins_archive"  # Assuming it's in the root directory of your repository
 
 def clone_or_update_repository(repo_url, author):
     author_directory = os.path.join(archive_directory, author)
@@ -29,7 +29,6 @@ def main():
 
     # Commit and push changes
     os.chdir(archive_directory)
-    os.getcwd()
     subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
     subprocess.run(["git", "add", "."])
