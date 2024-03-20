@@ -10,3 +10,15 @@
 [submodule "Pwnagotchi-Handshaker"]
 	path = Pwnagotchi-Handshaker
 	url = https://github.com/allordacia/Pwnagotchi-Handshaker
+[submodule "rai68/gpsd-easy"]
+	path = rai68/gpsd-easy
+	url = https://github.com/rai68/gpsd-easy
+[submodule "rai68/pwnagotchi-pisugar2-plugin"]
+	path = rai68/pwnagotchi-pisugar2-plugin
+	url = https://github.com/rai68/pwnagotchi-pisugar2-plugin
+[submodule "allordacia/FlipperLink"]
+	path = allordacia/FlipperLink
+	url = https://github.com/allordacia/FlipperLink
+[submodule "allordacia/Pwnagotchi-Handshaker"]
+	path = allordacia/Pwnagotchi-Handshaker
+	url = https://github.com/allordacia/Pwnagotchi-Handshaker
