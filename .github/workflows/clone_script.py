@@ -29,6 +29,7 @@ def main():
 
     # Commit and push changes
     os.chdir(archive_directory)
+    os.getcwd()
     subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
     subprocess.run(["git", "add", "."])
