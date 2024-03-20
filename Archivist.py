@@ -34,11 +34,10 @@ def clone_or_update_repository(repo_url):
 def main():
     # Clone or update repositories
     print("Hack The Planet")
-    print(os.path)
+    #print(os.path)
     for repo_url in repositories:
         #author, repo_name = repo_url.split("/")[-2:]
         clone_or_update_repository(repo_url)
-    print(os.getcwd())
     # Commit and push changes
     #subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     #subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
