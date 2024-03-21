@@ -47,6 +47,7 @@ def remove_submodules():
             if not any(repo_url.split("/")[-2] == name for repo_url in repositories):
                 dir_path = os.path.join(root, name)
                 if os.path.isdir(dir_path):
+                    print(dir_path)
                     subprocess.run(["rm", "-rf", dir_path], cwd=os.getcwd())  # Set working directory
 
 
