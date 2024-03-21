@@ -66,6 +66,9 @@ def remove_submodules():
 
                     
 def main():
+    subprocess.run(["git", "config", "--global", "user.email", "70115207+V0r-T3x@users.noreply.github.com"])
+    subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
+    
     # Add repositories as submodules
     for repo_url in repositories:
         add_submodule(repo_url)
@@ -76,9 +79,6 @@ def main():
 
     # Remove submodules and author folders
     remove_submodules()
-
-    subprocess.run(["git", "config", "--global", "user.email", "70115207+V0r-T3x@users.noreply.github.com"])
-    subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
