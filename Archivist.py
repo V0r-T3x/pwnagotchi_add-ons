@@ -19,8 +19,15 @@ def add_submodule(repo_url):
     if not os.path.exists(author):
         os.makedirs(author)
 
+    # Check if the submodule already exists in the index
+    submodule_path = f"{author}/{repo_name}"
+    if os.path.exists(submodule_path):
+        print(f"Submodule {submodule_path} already exists. Skipping...")
+        return
+
     # Add the repository as a submodule within the author folder
-    subprocess.run(["git", "submodule", "add", repo_url, f"{author}/{repo_name}"])
+    subprocess.run(["git", "submodule", "add", repo_url, submodule_path])
+
 
 def main():
     # Add repositories as submodules
