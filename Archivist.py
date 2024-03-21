@@ -11,10 +11,14 @@ repositories = [
 ]
 
 def add_submodule(repo_url):
-    # Split the URL to extract the repository owner and name
-    parts = repo_url.strip("/").split("/")
-    author = parts[-2]
-    repo_name = parts[-1]
+    # Extract the file path from the URL
+    file_path = repo_url.split("/blob/main/")[1]
+
+    # Create the folder structure for the file path
+    parts = file_path.split("/")
+    author = parts[0]
+    repo_name = parts[1]
+    file_name = parts[2]
 
     # Create the author folder if it doesn't exist
     if not os.path.exists(author):
@@ -26,15 +30,16 @@ def add_submodule(repo_url):
         print(f"Submodule {submodule_path} already exists. Skipping...")
         return
 
-    # Add the repository as a submodule within the author folder
-    subprocess.run(["git", "submodule", "add", repo_url, submodule_path], cwd=os.getcwd())  # Set working directory
+    # Add the file as a submodule within the author folder
+    subprocess.run(["git", "submodule", "add", repo_url, file_path], cwd=os.getcwd())  # Set working directory
 
 def remove_submodules():
     # Remove entries from the .gitmodules file and update the index
     for repo_url in repositories:
-        parts = repo_url.strip("/").split("/")
-        author = parts[-2]
-        repo_name = parts[-1]
+        file_path = repo_url.split("/blob/main/")[1]
+        parts = file_path.split("/")
+        author = parts[0]
+        repo_name = parts[1]
         submodule_path = os.path.join(author, repo_name)
         subprocess.run(["git", "config", "-f", ".gitmodules", "--remove-section", f"submodule.{submodule_path}"])
         subprocess.run(["git", "rm", "-r", "--cached", submodule_path])
@@ -45,9 +50,10 @@ def remove_submodules():
 
     # Remove the submodule directories
     for repo_url in repositories:
-        parts = repo_url.strip("/").split("/")
-        author = parts[-2]
-        repo_name = parts[-1]
+        file_path = repo_url.split("/blob/main/")[1]
+        parts = file_path.split("/")
+        author = parts[0]
+        repo_name = parts[1]
         submodule_path = os.path.join(author, repo_name)
         shutil.rmtree(submodule_path)
 
@@ -70,15 +76,15 @@ def main():
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
     # Add repositories as submodules
-    #for repo_url in repositories:
-    #    add_submodule(repo_url)
+    for repo_url in repositories:
+        add_submodule(repo_url)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
     # Remove submodules and author folders
-    remove_submodules()
+    #remove_submodules()
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
