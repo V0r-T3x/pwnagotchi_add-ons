@@ -49,9 +49,6 @@ def main():
     subprocess.run(["git", "submodule", "init"])
     subprocess.run(["git", "submodule", "update"])
 
-    # Remove submodules and author folders
-    remove_submodules()
-    
     # Set up git configuration
     subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
@@ -66,7 +63,8 @@ def main():
     subprocess.run(["git", "commit", "-m", "Add submodules"])
     subprocess.run(["git", "push"])
 
-    
+    # Remove submodules and author folders
+    remove_submodules()
 
 if __name__ == "__main__":
     main()
