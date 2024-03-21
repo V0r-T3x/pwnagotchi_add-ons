@@ -72,6 +72,11 @@ def main():
     # Remove submodules and author folders
     remove_submodules()
 
+    # Set up git credentials
+    subprocess.run(["git", "config", "--local", "credential.helper", "store --file=.git/credentials"])
+    subprocess.run(["git", "config", "--local", "credential.username", "V0r-T3x"])
+    subprocess.run(["git", "config", "--local", "credential.useHttpPath", "true"])
+
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "commit", "-m", "Add and remove submodules"], cwd=os.getcwd())  # Set working directory
