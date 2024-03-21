@@ -35,10 +35,11 @@ def remove_submodules():
             if name != ".git" and name != ".github":  # Exclude .git and .github folders
                 submodule_path = os.path.join(root, name)
                 if os.path.isfile(os.path.join(submodule_path, ".gitmodules")):
-                    subprocess.run(["git", "submodule", "deinit", "-f", "--", submodule_path], cwd=os.getcwd())  # Set working directory
-                    subprocess.run(["git", "rm", "--cached", submodule_path], cwd=os.getcwd())  # Remove from cache, set working directory
-                    subprocess.run(["git", "rm", "-rf", submodule_path], cwd=os.getcwd())  # Recursive force remove, set working directory
-                    subprocess.run(["git", "config", "--remove-section", f"submodule.{submodule_path}"], cwd=os.getcwd())  # Remove from .gitmodules file, set working directory
+                    submodule_rel_path = os.path.relpath(submodule_path, start=os.getcwd())
+                    subprocess.run(["git", "submodule", "deinit", "-f", "--", submodule_rel_path], cwd=os.getcwd())  # Set working directory
+                    subprocess.run(["git", "rm", "--cached", submodule_rel_path], cwd=os.getcwd())  # Remove from cache, set working directory
+                    subprocess.run(["git", "rm", "-rf", submodule_rel_path], cwd=os.getcwd())  # Recursive force remove, set working directory
+                    subprocess.run(["git", "config", "--remove-section", f"submodule.{submodule_rel_path}"], cwd=os.getcwd())  # Remove from .gitmodules file, set working directory
 
     # Remove the parent author folders
     for root, dirs, files in os.walk(".", topdown=True):
@@ -47,6 +48,7 @@ def remove_submodules():
                 dir_path = os.path.join(root, name)
                 if os.path.isdir(dir_path):
                     subprocess.run(["rm", "-rf", dir_path], cwd=os.getcwd())  # Set working directory
+
                     
 def main():
     # Add repositories as submodules
