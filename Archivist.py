@@ -36,9 +36,17 @@ def remove_submodules():
                 submodule_path = os.path.join(root, name)
                 if os.path.isfile(os.path.join(submodule_path, ".gitmodules")):
                     subprocess.run(["git", "submodule", "deinit", "-f", "--", submodule_path])
-                    subprocess.run(["git", "rm", "-f", submodule_path])
+                    subprocess.run(["git", "rm", "-rf", submodule_path])  # Recursive force remove
                     subprocess.run(["git", "config", "--remove-section", f"submodule.{submodule_path}"])
-                    os.rmdir(submodule_path)
+
+    # Remove the parent author folders
+    for root, dirs, files in os.walk(".", topdown=True):
+        for name in dirs:
+            if not any(repo_url.split("/")[-2] == name for repo_url in repositories):
+                dir_path = os.path.join(root, name)
+                if os.path.isdir(dir_path):
+                    subprocess.run(["rm", "-rf", dir_path])
+
 
 def main():
     # Add repositories as submodules
