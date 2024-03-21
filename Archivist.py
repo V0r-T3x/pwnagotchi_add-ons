@@ -28,6 +28,17 @@ def add_submodule(repo_url):
     # Add the repository as a submodule within the author folder
     subprocess.run(["git", "submodule", "add", repo_url, submodule_path])
 
+def remove_submodules():
+    # Remove all submodules and author folders except the workflow folder
+    for root, dirs, files in os.walk(".", topdown=False):
+        for name in dirs:
+            if name != ".git" and name != ".github":  # Exclude .git and .github folders
+                submodule_path = os.path.join(root, name)
+                if os.path.isfile(os.path.join(submodule_path, ".gitmodules")):
+                    subprocess.run(["git", "submodule", "deinit", "-f", "--", submodule_path])
+                    subprocess.run(["git", "rm", "-f", submodule_path])
+                    subprocess.run(["git", "config", "--remove-section", f"submodule.{submodule_path}"])
+                    os.rmdir(submodule_path)
 
 def main():
     # Add repositories as submodules
@@ -38,10 +49,13 @@ def main():
     subprocess.run(["git", "submodule", "init"])
     subprocess.run(["git", "submodule", "update"])
 
+    # Remove submodules and author folders
+    remove_submodules()
+    
     # Set up git configuration
     subprocess.run(["git", "config", "--local", "user.email", "action@github.com"])
     subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
-    
+
     # Set up git credentials
     subprocess.run(["git", "config", "--local", "credential.helper", "store --file=.git/credentials"])
     subprocess.run(["git", "config", "--local", "credential.username", "V0r-T3x"])
@@ -51,6 +65,8 @@ def main():
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "Add submodules"])
     subprocess.run(["git", "push"])
+
+    
 
 if __name__ == "__main__":
     main()
