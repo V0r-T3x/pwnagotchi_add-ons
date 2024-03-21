@@ -40,11 +40,13 @@ def remove_submodules():
                     subprocess.run(["git", "config", "--remove-section", f"submodule.{submodule_path}"])
 
     # Remove the parent author folders
-    for repo_url in repositories:
-        author = repo_url.split("/")[-2]
-        if os.path.exists(author):
-            subprocess.run(["rm", "-rf", author])
-
+    for root, dirs, files in os.walk(".", topdown=True):
+        for name in dirs:
+            if not any(repo_url.split("/")[-2] == name for repo_url in repositories):
+                dir_path = os.path.join(root, name)
+                if os.path.isdir(dir_path):
+                    subprocess.run(["rm", "-rf", dir_path])
+                    
 def main():
     # Add repositories as submodules
     for repo_url in repositories:
