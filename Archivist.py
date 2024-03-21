@@ -70,8 +70,8 @@ def main():
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
     # Add repositories as submodules
-    for repo_url in repositories:
-        add_submodule(repo_url)
+    #for repo_url in repositories:
+    #    add_submodule(repo_url)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
