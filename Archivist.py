@@ -62,9 +62,9 @@ def main():
     subprocess.run(["git", "config", "--local", "user.name", "GitHub Action"])
 
     # Set up git credentials
-    subprocess.run(["git", "config", "--local", "credential.helper", "store --file=.git/credentials"])
-    subprocess.run(["git", "config", "--local", "credential.username", "V0r-T3x"])
-    subprocess.run(["git", "config", "--local", "credential.useHttpPath", "true"])
+    #subprocess.run(["git", "config", "--local", "credential.helper", "store --file=.git/credentials"])
+    #subprocess.run(["git", "config", "--local", "credential.username", "V0r-T3x"])
+    #subprocess.run(["git", "config", "--local", "credential.useHttpPath", "true"])
 
     # Commit and push changes
     subprocess.run(["git", "add", "."])
