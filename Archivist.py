@@ -49,7 +49,7 @@ def remove_submodules():
 
 
 def main():
-    ```
+    
     # Add repositories as submodules
     for repo_url in repositories:
         add_submodule(repo_url)
@@ -67,13 +67,15 @@ def main():
     #subprocess.run(["git", "config", "--local", "credential.username", "V0r-T3x"])
     #subprocess.run(["git", "config", "--local", "credential.useHttpPath", "true"])
 
+    # Remove submodules and author folders
+    remove_submodules()
+    
     # Commit and push changes
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "Add submodules"])
     subprocess.run(["git", "push"])
-    ```
-    # Remove submodules and author folders
-    remove_submodules()
+    
+
 
 if __name__ == "__main__":
     main()
