@@ -1,5 +1,6 @@
 import os
 import subprocess
+import shutil
 
 # List of repositories to include in the archive
 repositories = [
