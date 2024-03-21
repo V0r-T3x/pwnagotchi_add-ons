@@ -4,9 +4,6 @@
 [submodule "pwnagotchi-pisugar2-plugin"]
 	path = pwnagotchi-pisugar2-plugin
 	url = https://github.com/rai68/pwnagotchi-pisugar2-plugin
-[submodule "FlipperLink"]
-	path = FlipperLink
-	url = https://github.com/allordacia/FlipperLink
 [submodule "Pwnagotchi-Handshaker"]
 	path = Pwnagotchi-Handshaker
 	url = https://github.com/allordacia/Pwnagotchi-Handshaker
