@@ -4,10 +4,10 @@ import shutil
 
 # List of repositories to include in the archive
 repositories = [
-    "https://github.com/rai68/gpsd-easy",
-    "https://github.com/rai68/pwnagotchi-pisugar2-plugin",
-    "https://github.com/allordacia/FlipperLink",
-    "https://github.com/allordacia/Pwnagotchi-Handshaker",
+    "https://github.com/LegendEvent/pwnagotchi-custom-plugins/blob/main/achievements.py",
+    "https://github.com/AlienMajik/pwnagotchi_plugins/blob/main/adsbsniffer.py",
+    "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_assoc.py",
+    "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_deauth.py",
 ]
 
 def add_submodule(repo_url):
