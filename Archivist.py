@@ -26,7 +26,7 @@ def add_submodule(repo_url):
         return
 
     # Add the repository as a submodule within the author folder
-    subprocess.run(["git", "submodule", "add", repo_url, submodule_path])
+    subprocess.run(["git", "submodule", "add", repo_url, submodule_path], cwd=os.getcwd())  # Set working directory
 
 def remove_submodules():
     # Remove all submodules and author folders except the workflow folder
@@ -35,9 +35,9 @@ def remove_submodules():
             if name != ".git" and name != ".github":  # Exclude .git and .github folders
                 submodule_path = os.path.join(root, name)
                 if os.path.isfile(os.path.join(submodule_path, ".gitmodules")):
-                    subprocess.run(["git", "submodule", "deinit", "-f", "--", submodule_path])
-                    subprocess.run(["git", "rm", "-rf", submodule_path])  # Recursive force remove
-                    subprocess.run(["git", "config", "--remove-section", f"submodule.{submodule_path}"])
+                    subprocess.run(["git", "submodule", "deinit", "-f", "--", submodule_path], cwd=os.getcwd())  # Set working directory
+                    subprocess.run(["git", "rm", "-rf", submodule_path], cwd=os.getcwd())  # Recursive force remove, set working directory
+                    subprocess.run(["git", "config", "--remove-section", f"submodule.{submodule_path}"], cwd=os.getcwd())  # Set working directory
 
     # Remove the parent author folders
     for root, dirs, files in os.walk(".", topdown=True):
@@ -45,7 +45,7 @@ def remove_submodules():
             if not any(repo_url.split("/")[-2] == name for repo_url in repositories):
                 dir_path = os.path.join(root, name)
                 if os.path.isdir(dir_path):
-                    subprocess.run(["rm", "-rf", dir_path])
+                    subprocess.run(["rm", "-rf", dir_path], cwd=os.getcwd())  # Set working directory
                     
 def main():
     # Add repositories as submodules
@@ -53,16 +53,16 @@ def main():
         add_submodule(repo_url)
 
     # Initialize and update submodules
-    subprocess.run(["git", "submodule", "init"])
-    subprocess.run(["git", "submodule", "update"])
+    subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
+    subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
     # Remove submodules and author folders
     remove_submodules()
 
     # Commit and push changes
-    subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "Add and remove submodules"])
-    subprocess.run(["git", "push"])
+    subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
+    subprocess.run(["git", "commit", "-m", "Add and remove submodules"], cwd=os.getcwd())  # Set working directory
+    subprocess.run(["git", "push"], cwd=os.getcwd())  # Set working directory
 
 if __name__ == "__main__":
     main()
