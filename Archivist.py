@@ -49,6 +49,7 @@ def remove_submodules():
                 if os.path.isdir(dir_path):
                     subprocess.run(["rm", "-rf", dir_path], cwd=os.getcwd())  # Set working directory
 
+
                     
 def main():
     # Add repositories as submodules
