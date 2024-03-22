@@ -13,13 +13,24 @@ plugin_list = [
 
 # Function to get the last commit date of a file in a repository
 def get_last_commit_date(repo_url):
-    api_url = repo_url.replace("github.com", "api.github.com/repos").replace("blob/main", "commits/main")  # Convert URL to GitHub API URL
-    response = requests.get(api_url)
-    if response.status_code == 200:
-        return response.json()["commit"]["commit"]["author"]["date"]
-    else:
-        print(f"Error: Unable to fetch commit date for {repo_url}")
+    parts = repo_url.split("/")
+    owner = parts[3]
+    repo_name = parts[4].split(".git")[0]
+    branch = "main"  # Assuming the default branch is 'main'
+    
+    api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
+    headers = {"Accept": "application/vnd.github.v3+json"}
+    
+    try:
+        response = requests.get(api_url, headers=headers)
+        response.raise_for_status()
+        commit_data = response.json()
+        last_commit_date = commit_data["commit"]["author"]["date"]
+        return last_commit_date
+    except requests.RequestException as e:
+        print(f"Error fetching last commit date for {repo_url}: {e}")
         return None
+
 
 def add_submodule(file_path):
     if "github.com" in file_path:  # If it's a file URL
