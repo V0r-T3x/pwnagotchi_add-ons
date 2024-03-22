@@ -1,9 +1,3 @@
-[submodule "gpsd-easy"]
-	path = gpsd-easy
-	url = https://github.com/rai68/gpsd-easy
-[submodule "pwnagotchi-pisugar2-plugin"]
-	path = pwnagotchi-pisugar2-plugin
-	url = https://github.com/rai68/pwnagotchi-pisugar2-plugin
 [submodule "Pwnagotchi-Handshaker"]
 	path = Pwnagotchi-Handshaker
 	url = https://github.com/allordacia/Pwnagotchi-Handshaker
