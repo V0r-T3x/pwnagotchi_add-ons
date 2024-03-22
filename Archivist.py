@@ -72,28 +72,20 @@ def remove_submodules():
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "Remove submodules"])
 
-    # Remove the parent author folders
-    #for root, dirs, files in os.walk(".", topdown=True):
-    #    for name in dirs:
-    #        if not any(repo_url.split("/")[-2] == name for repo_url in repositories):
-    #            dir_path = os.path.join(root, name)
-    #            if os.path.isdir(dir_path):
-    #                shutil.rmtree(dir_path)
-
 def main():
     subprocess.run(["git", "config", "--global", "user.email", "70115207+V0r-T3x@users.noreply.github.com"])
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
     # Add repositories as submodules
-    #for repo_url in repositories:
-    #    add_submodule(repo_url)
+    for repo_url in repositories:
+        add_submodule(repo_url)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
     # Remove submodules and author folders
-    remove_submodules()
+    #remove_submodules()
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
