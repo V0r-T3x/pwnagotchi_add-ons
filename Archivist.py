@@ -12,6 +12,7 @@ repositories = [
 
 def add_submodule(repo_url):
     # Extract the file path from the URL
+    print(repo_url)
     file_path = repo_url.split("/blob/main/")[1]
 
     # Create the folder structure for the file path
