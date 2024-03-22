@@ -51,12 +51,11 @@ def remove_submodules():
         subprocess.run(["git", "config", "-f", ".gitmodules", "--remove-section", f"submodule.{submodule_path}"])
         subprocess.run(["git", "rm", "-r", "--cached", submodule_path])
 
+    # Stage changes to .gitmodules
+    subprocess.run(["git", "add", ".gitmodules"])
+
     # Commit the changes to .gitmodules
-    try:
-        subprocess.run(["git", "add", ".gitmodules"])
-        subprocess.run(["git", "commit", "-m", "Remove submodule entries from .gitmodules"])
-    except subprocess.CalledProcessError:
-        pass
+    subprocess.run(["git", "commit", "-m", "Remove submodule entries from .gitmodules"])
 
     # Remove the submodule directories
     for repo_url in repositories:
@@ -72,8 +71,6 @@ def remove_submodules():
     # Commit the changes
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "Remove submodules"])
-
-
 
     # Remove the parent author folders
     #for root, dirs, files in os.walk(".", topdown=True):
