@@ -32,6 +32,9 @@ def get_last_commit_date(repo_url):
         return None
 
 
+import os
+import subprocess
+
 def add_submodule(file_path):
     if "github.com" in file_path:  # If it's a file URL
         parts = file_path.split("/")
@@ -72,6 +75,24 @@ def add_submodule(file_path):
             "file_relative_path": None,
             "description": None
         }
+
+    # Create the author folder if it doesn't exist
+    author_folder = os.path.join("Plugins", owner)
+    if not os.path.exists(author_folder):
+        os.makedirs(author_folder)
+
+    # Check if the submodule already exists in the index
+    submodule_path = os.path.join(author_folder, repo_name)
+    if os.path.exists(submodule_path):
+        print(f"Submodule {submodule_path} already exists. Skipping...")
+        return
+
+    # Construct the clone URL
+    clone_url = f"https://github.com/{owner}/{repo_name}.git"
+    
+    # Add the repository as a submodule within the author folder
+    subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
+
 
 def remove_submodules():
     # Remove entries from the .gitmodules file and update the index
