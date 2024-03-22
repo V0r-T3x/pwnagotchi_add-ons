@@ -11,25 +11,19 @@ repositories = [
 ]
 
 def add_submodule(repo_url):
-    # Split the URL to extract the repository owner, name, and file path
-    parts = repo_url.split("/blob/main/")
-    if len(parts) != 2:
+    # Split the URL to extract the repository owner, name, and branch
+    parts = repo_url.split("/")
+    if len(parts) < 5:
         print(f"Invalid URL format: {repo_url}")
         return
 
-    file_path = parts[1]
-
-    # Split the first part to extract the repository owner and name
-    repo_info = parts[0].split("/")
-    if len(repo_info) < 5:
-        print(f"Invalid URL format: {repo_url}")
-        return
-
-    author = repo_info[-2]
-    repo_name = repo_info[-1]
+    # Extract the repository owner, name, and branch
+    owner = parts[3]
+    repo_name = parts[4]
+    branch = "main"  # Assuming the default branch is 'main'
 
     # Create the author folder if it doesn't exist
-    author_folder = os.path.join("_plugins_archive", "_plugins_archive", author)
+    author_folder = os.path.join("_plugins_archive", owner)
     if not os.path.exists(author_folder):
         os.makedirs(author_folder)
 
@@ -39,8 +33,12 @@ def add_submodule(repo_url):
         print(f"Submodule {submodule_path} already exists. Skipping...")
         return
 
+    # Construct the clone URL
+    clone_url = f"https://github.com/{owner}/{repo_name}.git"
+    
     # Add the repository as a submodule within the author folder
-    subprocess.run(["git", "submodule", "add", repo_url, submodule_path], cwd=os.getcwd())  # Set working directory
+    subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
+
 
 
 def remove_submodules():
