@@ -40,7 +40,6 @@ def add_submodule(file_url):
     subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
 
 
-
 def remove_submodules():
     # Remove entries from the .gitmodules file and update the index
     for file_url in plugin_list:
@@ -62,7 +61,7 @@ def remove_submodules():
         parts = file_url.split("/")
         author = parts[3]
         repo_name = parts[4].split(".git")[0]
-        submodule_path = os.path.join("_plugins_archive", author, repo_name)
+        submodule_path = os.path.join("Plugins", author, repo_name)
         try:
             shutil.rmtree(submodule_path)
         except FileNotFoundError:
@@ -71,6 +70,7 @@ def remove_submodules():
     # Commit the changes
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "Remove submodules"])
+
 
 def main():
     subprocess.run(["git", "config", "--global", "user.email", "70115207+V0r-T3x@users.noreply.github.com"])
