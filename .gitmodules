@@ -1,3 +1,15 @@
 [submodule "Pwnagotchi-Handshaker"]
 	path = Pwnagotchi-Handshaker
 	url = https://github.com/allordacia/Pwnagotchi-Handshaker
+[submodule "LegendEvent/pwnagotchi-custom-plugins"]
+	path = LegendEvent/pwnagotchi-custom-plugins
+	url = https://github.com/LegendEvent/pwnagotchi-custom-plugins.git
+	branch = main
+[submodule "AlienMajik/pwnagotchi_plugins"]
+	path = AlienMajik/pwnagotchi_plugins
+	url = https://github.com/AlienMajik/pwnagotchi_plugins.git
+	branch = main
+[submodule "Sniffleupagus/pwnagotchi_plugins"]
+	path = Sniffleupagus/pwnagotchi_plugins
+	url = https://github.com/Sniffleupagus/pwnagotchi_plugins.git
+	branch = main
