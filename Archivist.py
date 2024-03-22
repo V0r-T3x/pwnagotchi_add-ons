@@ -23,7 +23,7 @@ def add_submodule(repo_url):
     branch = "main"  # Assuming the default branch is 'main'
 
     # Create the author folder if it doesn't exist
-    author_folder = os.path.join("_plugins_archive", owner)
+    author_folder = os.path.join(owner)
     if not os.path.exists(author_folder):
         os.makedirs(author_folder)
 
@@ -47,7 +47,7 @@ def remove_submodules():
         parts = repo_url.split("/")
         author = parts[3]
         repo_name = parts[4].split(".git")[0]
-        submodule_path = os.path.join("_plugins_archive", author, repo_name)
+        submodule_path = os.path.join(author, repo_name)
         subprocess.run(["git", "config", "-f", ".gitmodules", "--remove-section", f"submodule.{submodule_path}"])
         subprocess.run(["git", "rm", "-r", "--cached", submodule_path])
 
@@ -90,15 +90,15 @@ def main():
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
     # Add repositories as submodules
-    #for repo_url in repositories:
-    #    add_submodule(repo_url)
+    for repo_url in repositories:
+        add_submodule(repo_url)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
     # Remove submodules and author folders
-    remove_submodules()
+    #remove_submodules()
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
