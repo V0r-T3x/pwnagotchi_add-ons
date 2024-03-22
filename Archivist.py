@@ -10,35 +10,56 @@ plugin_list = [
     "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_deauth.py",
 ]
 
-def add_submodule(file_url):
-    # Split the URL to extract the repository owner, name, and branch
-    parts = file_url.split("/")
-    if len(parts) < 5:
-        print(f"Invalid URL format: {file_url}")
-        return
+# Function to get the last commit date of a file in a repository
+def get_last_commit_date(repo_url):
+    api_url = repo_url.replace("github.com", "api.github.com/repos").replace("blob/main", "commits/main")  # Convert URL to GitHub API URL
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        return response.json()["commit"]["commit"]["author"]["date"]
+    else:
+        print(f"Error: Unable to fetch commit date for {repo_url}")
+        return None
 
-    # Extract the repository owner, name, and branch
-    owner = parts[3]
-    repo_name = parts[4]
-    branch = "main"  # Assuming the default branch is 'main'
-
-    # Create the author folder if it doesn't exist
-    author_folder = os.path.join("Plugins", owner)
-    if not os.path.exists(author_folder):
-        os.makedirs(author_folder)
-
-    # Check if the submodule already exists in the index
-    submodule_path = os.path.join(author_folder, repo_name)
-    if os.path.exists(submodule_path):
-        print(f"Submodule {submodule_path} already exists. Skipping...")
-        return
-
-    # Construct the clone URL
-    clone_url = f"https://github.com/{owner}/{repo_name}.git"
-    
-    # Add the repository as a submodule within the author folder
-    subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
-
+def add_submodule(file_path):
+    if "github.com" in file_path:  # If it's a file URL
+        parts = file_path.split("/")
+        owner = parts[3]
+        repo_name = parts[4]
+        branch = "main"
+        file_relative_path = "/".join(parts[5:])
+        file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{file_relative_path}"
+        last_commit_date = get_last_commit_date(file_path)
+        description = None
+        if file_url.endswith(".py"):
+            response = requests.get(file_url)
+            if response.status_code == 200:
+                lines = response.text.split("\n")
+                for line in lines:
+                    if "_description_" in line:
+                        description = line.split("_description_")[1].strip()
+                        break
+        return {
+            "owner": owner,
+            "repo_name": repo_name,
+            "branch": branch,
+            "last_commit_date": last_commit_date,
+            "file_relative_path": file_relative_path,
+            "description": description
+        }
+    else:  # If it's a repository URL
+        parts = file_path.split("/")
+        owner = parts[3]
+        repo_name = parts[4].split(".git")[0]
+        branch = "main"  # Assuming the default branch is 'main'
+        last_commit_date = get_last_commit_date(file_path)
+        return {
+            "owner": owner,
+            "repo_name": repo_name,
+            "branch": branch,
+            "last_commit_date": last_commit_date,
+            "file_relative_path": None,
+            "description": None
+        }
 
 def remove_submodules():
     # Remove entries from the .gitmodules file and update the index
@@ -78,7 +99,8 @@ def main():
     
     # Add plugin repositories as submodules
     for plugin_url in plugin_list:
-        add_submodule(plugin_url)
+        submodule_info = add_submodule(plugin_url)
+        print(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
