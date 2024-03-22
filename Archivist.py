@@ -106,15 +106,19 @@ def remove_submodules():
     subprocess.run(["git", "commit", "-m", "Remove submodule entries from .gitmodules"])
 
     # Remove the submodule directories
-    #for file_url in plugin_list:
-    #    parts = file_url.split("/")
-    #    author = parts[3]
-    #    repo_name = parts[4].split(".git")[0]
-    #    submodule_path = os.path.join("Plugins", author, repo_name)
-    #    try:
-    #        shutil.rmtree(submodule_path)
-    #    except FileNotFoundError:
-    #        pass
+    for file_url in plugin_list:
+        parts = file_url.split("/")
+        author = parts[3]
+        repo_name = parts[4].split(".git")[0]
+        submodule_path = os.path.join("Plugins", author, repo_name)
+        if os.path.exists(submodule_path):
+            try:
+                shutil.rmtree(submodule_path)
+            except FileNotFoundError:
+                pass
+        else:
+            print(f"Submodule {submodule_path} does not exist. Skipping deletion...")
+
 
     # Commit the changes
     subprocess.run(["git", "add", "."])
