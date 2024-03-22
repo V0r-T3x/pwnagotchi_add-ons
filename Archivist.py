@@ -2,19 +2,19 @@ import os
 import subprocess
 import shutil
 
-# List of repositories to include in the archive
-repositories = [
+# List of plugins to include in the archive
+plugin_list = [
     "https://github.com/LegendEvent/pwnagotchi-custom-plugins/blob/main/achievements.py",
     "https://github.com/AlienMajik/pwnagotchi_plugins/blob/main/adsbsniffer.py",
     "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_assoc.py",
     "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_deauth.py",
 ]
 
-def add_submodule(repo_url):
+def add_submodule(file_url):
     # Split the URL to extract the repository owner, name, and branch
-    parts = repo_url.split("/")
+    parts = file_url.split("/")
     if len(parts) < 5:
-        print(f"Invalid URL format: {repo_url}")
+        print(f"Invalid URL format: {file_url}")
         return
 
     # Extract the repository owner, name, and branch
@@ -43,8 +43,8 @@ def add_submodule(repo_url):
 
 def remove_submodules():
     # Remove entries from the .gitmodules file and update the index
-    for repo_url in repositories:
-        parts = repo_url.split("/")
+    for file_url in plugin_list:
+        parts = file_url.split("/")
         author = parts[3]
         repo_name = parts[4].split(".git")[0]
         submodule_path = os.path.join("Plugins", author, repo_name)
@@ -58,8 +58,8 @@ def remove_submodules():
     subprocess.run(["git", "commit", "-m", "Remove submodule entries from .gitmodules"])
 
     # Remove the submodule directories
-    for repo_url in repositories:
-        parts = repo_url.split("/")
+    for file_url in plugin_list:
+        parts = file_url.split("/")
         author = parts[3]
         repo_name = parts[4].split(".git")[0]
         submodule_path = os.path.join("_plugins_archive", author, repo_name)
@@ -76,16 +76,16 @@ def main():
     subprocess.run(["git", "config", "--global", "user.email", "70115207+V0r-T3x@users.noreply.github.com"])
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
-    # Add repositories as submodules
-    for repo_url in repositories:
-        add_submodule(repo_url)
+    # Add plugin repositories as submodules
+    #for plugin_url in plugin_list:
+    #    add_submodule(plugin_url)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
     # Remove submodules and author folders
-    #remove_submodules()
+    remove_submodules()
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
