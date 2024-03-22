@@ -1,1 +1,13 @@
 
+[submodule "Plugins/LegendEvent/pwnagotchi-custom-plugins"]
+	path = Plugins/LegendEvent/pwnagotchi-custom-plugins
+	url = https://github.com/LegendEvent/pwnagotchi-custom-plugins.git
+	branch = main
+[submodule "Plugins/AlienMajik/pwnagotchi_plugins"]
+	path = Plugins/AlienMajik/pwnagotchi_plugins
+	url = https://github.com/AlienMajik/pwnagotchi_plugins.git
+	branch = main
+[submodule "Plugins/Sniffleupagus/pwnagotchi_plugins"]
+	path = Plugins/Sniffleupagus/pwnagotchi_plugins
+	url = https://github.com/Sniffleupagus/pwnagotchi_plugins.git
+	branch = main
