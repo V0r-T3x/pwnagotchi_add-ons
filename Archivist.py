@@ -11,28 +11,37 @@ repositories = [
 ]
 
 def add_submodule(repo_url):
-    # Extract the file path from the URL
-    print(repo_url)
-    file_path = repo_url.split("/blob/main/")[1]
+    # Split the URL to extract the repository owner, name, and file path
+    parts = repo_url.split("/blob/main/")
+    if len(parts) != 2:
+        print(f"Invalid URL format: {repo_url}")
+        return
 
-    # Create the folder structure for the file path
-    parts = file_path.split("/")
-    author = parts[0]
-    repo_name = parts[1]
-    file_name = parts[2]
+    file_path = parts[1]
+
+    # Split the first part to extract the repository owner and name
+    repo_info = parts[0].split("/")
+    if len(repo_info) < 5:
+        print(f"Invalid URL format: {repo_url}")
+        return
+
+    author = repo_info[-2]
+    repo_name = repo_info[-1]
 
     # Create the author folder if it doesn't exist
-    if not os.path.exists(author):
-        os.makedirs(author)
+    author_folder = os.path.join("_plugins_archive", "_plugins_archive", author)
+    if not os.path.exists(author_folder):
+        os.makedirs(author_folder)
 
     # Check if the submodule already exists in the index
-    submodule_path = f"{author}/{repo_name}"
+    submodule_path = os.path.join(author_folder, repo_name)
     if os.path.exists(submodule_path):
         print(f"Submodule {submodule_path} already exists. Skipping...")
         return
 
-    # Add the file as a submodule within the author folder
-    subprocess.run(["git", "submodule", "add", repo_url, file_path], cwd=os.getcwd())  # Set working directory
+    # Add the repository as a submodule within the author folder
+    subprocess.run(["git", "submodule", "add", repo_url, submodule_path], cwd=os.getcwd())  # Set working directory
+
 
 def remove_submodules():
     # Remove entries from the .gitmodules file and update the index
