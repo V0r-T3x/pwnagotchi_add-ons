@@ -97,7 +97,7 @@ def remove_submodules():
         repo_name = parts[4].split(".git")[0]
         submodule_path = os.path.join("Plugins", author, repo_name)
         subprocess.run(["git", "config", "-f", ".gitmodules", "--remove-section", f"submodule.{submodule_path}"])
-        subprocess.run(["git", "rm", "-r", "--cached", submodule_path])
+        #subprocess.run(["git", "rm", "-r", "--cached", submodule_path])
 
     # Stage changes to .gitmodules
     subprocess.run(["git", "add", ".gitmodules"])
@@ -130,16 +130,16 @@ def main():
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
     # Add plugin repositories as submodules
-    #for plugin_url in plugin_list:
-    #    submodule_info = add_submodule(plugin_url, "Plugins")
-    #    print(submodule_info)
+    for plugin_url in plugin_list:
+        submodule_info = add_submodule(plugin_url, "Plugins")
+        print(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
     # Remove submodules and author folders
-    remove_submodules()
+    #remove_submodules()
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
