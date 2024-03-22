@@ -1,6 +1,7 @@
 import os
 import subprocess
 import shutil
+import requests
 
 # List of plugins to include in the archive
 plugin_list = [
