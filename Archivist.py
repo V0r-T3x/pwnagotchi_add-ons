@@ -44,11 +44,10 @@ def add_submodule(repo_url):
 def remove_submodules():
     # Remove entries from the .gitmodules file and update the index
     for repo_url in repositories:
-        file_path = repo_url.split("/blob/main/")[1]
-        parts = file_path.split("/")
-        author = parts[0]
-        repo_name = parts[1]
-        submodule_path = os.path.join(author, repo_name)
+        parts = repo_url.split("/")
+        author = parts[3]
+        repo_name = parts[4].split(".git")[0]
+        submodule_path = os.path.join("_plugins_archive", author, repo_name)
         subprocess.run(["git", "config", "-f", ".gitmodules", "--remove-section", f"submodule.{submodule_path}"])
         subprocess.run(["git", "rm", "-r", "--cached", submodule_path])
 
@@ -58,16 +57,16 @@ def remove_submodules():
 
     # Remove the submodule directories
     for repo_url in repositories:
-        file_path = repo_url.split("/blob/main/")[1]
-        parts = file_path.split("/")
-        author = parts[0]
-        repo_name = parts[1]
-        submodule_path = os.path.join(author, repo_name)
+        parts = repo_url.split("/")
+        author = parts[3]
+        repo_name = parts[4].split(".git")[0]
+        submodule_path = os.path.join("_plugins_archive", author, repo_name)
         shutil.rmtree(submodule_path)
 
     # Commit the changes
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", "Remove submodules"])
+
 
     # Remove the parent author folders
     #for root, dirs, files in os.walk(".", topdown=True):
