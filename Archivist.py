@@ -122,12 +122,12 @@ def add_submodule(addon_path, folder_name):
         if submodule_path in gitmodules_content:
             print(f"Submodule {submodule_path} already exists in .gitmodules. Skipping...")
             return None
-
-    # Construct the clone URL
-    clone_url = f"https://github.com/{owner}/{repo_name}.git"
-    
-    # Add the repository as a submodule within the author folder
-    subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
+        else:
+            # Construct the clone URL
+            clone_url = f"https://github.com/{owner}/{repo_name}.git"
+            
+            # Add the repository as a submodule within the author folder
+            subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
 
     return {
         "path": addon_path,
