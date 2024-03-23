@@ -24,7 +24,7 @@ def get_last_commit_date(repo_url):
     parts = repo_url.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    branch = "main"  # Assuming the default branch is 'main'
+    branch = parts[6]#"main"  # Assuming the default branch is 'main'
     
     api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
     headers = {"Accept": "application/vnd.github.v3+json"}
@@ -64,7 +64,7 @@ def add_submodule(addon_path, folder_name):
     parts = addon_path.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    branch = "main"  # Assuming the default branch is 'main'
+    branch = parts[6]
     last_commit_date = get_last_commit_date(addon_path)
     description = None
     addon_name = None
