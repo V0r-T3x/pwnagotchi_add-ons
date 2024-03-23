@@ -41,8 +41,24 @@
   - Repository path: https://github.com/bryzz42o/Pwnagotchi-fsociety-plugins
   - Description: None
 
+## dadav
+- [apfaker.py](https://github.com/dadav/pwnagotchi-custom-plugins/blob/master/apfaker.py)
+  - Last Commit Date: None
+  - Repository path: https://github.com/dadav/pwnagotchi-custom-plugins
+  - Description: None
+
 ## evilsocket
+- [auto-update.py](https://github.com/evilsocket/pwnagotchi/blob/master/pwnagotchi/plugins/default/auto-update.py)
+  - Last Commit Date: None
+  - Repository path: https://github.com/evilsocket/pwnagotchi
+  - Description: None
+
 - [aircrackonly.py](https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/aircrackonly.py)
+  - Last Commit Date: None
+  - Repository path: https://github.com/evilsocket/pwnagotchi-plugins-contrib
+  - Description: None
+
+- [auto_backup.py](https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/auto_backup.py)
   - Last Commit Date: None
   - Repository path: https://github.com/evilsocket/pwnagotchi-plugins-contrib
   - Description: None
@@ -59,11 +75,33 @@
   - Repository path: https://github.com/itsdarklikehell/apprise-notify
   - Description: An Apprise plugin for pwnagotchi that implements all the available callbacks.
 
+- [auto-hotspot.py](https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/auto-hotspot.py)
+  - Last Commit Date: None
+  - Repository path: https://github.com/itsdarklikehell/pwnagotchi-plugins
+  - Description: None
+
+- [banthex-de.py](https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/banthex-de.py)
+  - Last Commit Date: None
+  - Repository path: https://github.com/itsdarklikehell/pwnagotchi-plugins
+  - Description: None
+
+## kripthor
+- [beacons.py](https://github.com/kripthor/pwnagotchi-beacons/blob/master/plugin/beacons.py)
+  - Last Commit Date: None
+  - Repository path: https://github.com/kripthor/pwnagotchi-beacons
+  - Description: None
+
 ## shir0tetsuo
 - [basiclight.py](https://github.com/shir0tetsuo/pwnagotchi-plugins/blob/main/basiclight.py)
   - Last Commit Date: 2024-01-01T18:08:00Z
   - Repository path: https://github.com/shir0tetsuo/pwnagotchi-plugins
   - Description: GPIO traffic-light signals.
+
+## troystauffer
+- [away_base.py](https://github.com/troystauffer/home_base/blob/master/away_base.py)
+  - Last Commit Date: None
+  - Repository path: https://github.com/troystauffer/home_base
+  - Description: None
 
 # Mods
 ## FamosoMocoso
