@@ -149,7 +149,7 @@ def main():
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
     # Remove plugins submodules and author folders
-    remove_submodules(plugins_list)
+    #remove_submodules(plugins_list)
 
     # Remove mods submodules and author folders
     remove_submodules(mods_list)
