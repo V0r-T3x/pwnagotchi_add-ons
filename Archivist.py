@@ -34,7 +34,13 @@ def get_last_commit_date(repo_url):
         commit_data = response.json()
         last_commit_date = commit_data["commit"]["author"]["date"]
         return last_commit_date
-    except requests.RequestException as e:
+    except requests.HTTPError as e:
+        if response.status_code == 422:
+            print(f"Error fetching last commit date for {repo_url}: Unprocessable Entity")
+        else:
+            print(f"Error fetching last commit date for {repo_url}: {e}")
+        return None
+    except Exception as e:
         print(f"Error fetching last commit date for {repo_url}: {e}")
         return None
 
