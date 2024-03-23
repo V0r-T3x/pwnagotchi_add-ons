@@ -64,9 +64,12 @@ def add_submodule(addon_path, folder_name):
                 lines = response.text.split("\n")
                 for line in lines:
                     if "__description__" in line:
-                        
-                        description = line.split("__description__")[1].strip()
+                        desc_part = line.split("=")
+                        if len(desc_part) >=2:
+                            description = desc_part[1].strip().strip("'").strip('"')
+                        #description = line.split("__description__")[1].strip()
                         print(line)
+                        print(description)
                         break
     else:  # If it's a repository URL
         if not os.path.exists(author_folder):
