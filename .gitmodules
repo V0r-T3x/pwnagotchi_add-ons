@@ -1,44 +1,4 @@
 
-[submodule "Plugins/LegendEvent/pwnagotchi-custom-plugins"]
-	path = Plugins/LegendEvent/pwnagotchi-custom-plugins
-	url = https://github.com/LegendEvent/pwnagotchi-custom-plugins.git
-	branch = main
-[submodule "Plugins/AlienMajik/pwnagotchi_plugins"]
-	path = Plugins/AlienMajik/pwnagotchi_plugins
-	url = https://github.com/AlienMajik/pwnagotchi_plugins.git
-	branch = main
-[submodule "Plugins/bryzz42o/Pwnagotchi-fsociety-plugins"]
-	path = Plugins/bryzz42o/Pwnagotchi-fsociety-plugins
-	url = https://github.com/bryzz42o/Pwnagotchi-fsociety-plugins.git
-	branch = main
-[submodule "Plugins/hannadiamond/pwnagotchi-plugins"]
-	path = Plugins/hannadiamond/pwnagotchi-plugins
-	url = https://github.com/hannadiamond/pwnagotchi-plugins.git
-	branch = main
-[submodule "Plugins/Kaska89/pwnagotchi-EXPv2-plugin"]
-	path = Plugins/Kaska89/pwnagotchi-EXPv2-plugin
-	url = https://github.com/Kaska89/pwnagotchi-EXPv2-plugin.git
-	branch = main
-[submodule "Plugins/itsdarklikehell/apprise-notify"]
-	path = Plugins/itsdarklikehell/apprise-notify
-	url = https://github.com/itsdarklikehell/apprise-notify.git
-	branch = main
-[submodule "Plugins/V0r-T3x/pwnagotchi_plugins"]
-	path = Plugins/V0r-T3x/pwnagotchi_plugins
-	url = https://github.com/V0r-T3x/pwnagotchi_plugins.git
-	branch = main
-[submodule "Plugins/shir0tetsuo/pwnagotchi-plugins"]
-	path = Plugins/shir0tetsuo/pwnagotchi-plugins
-	url = https://github.com/shir0tetsuo/pwnagotchi-plugins.git
-	branch = main
-[submodule "Plugins/arturandre/pwnagotchi-beacon-plugins"]
-	path = Plugins/arturandre/pwnagotchi-beacon-plugins
-	url = https://github.com/arturandre/pwnagotchi-beacon-plugins.git
-	branch = main
-[submodule "Plugins/SilenTree12th/pwnagotchi_plugins"]
-	path = Plugins/SilenTree12th/pwnagotchi_plugins
-	url = https://github.com/SilenTree12th/pwnagotchi_plugins.git
-	branch = main
 [submodule "Mods/FamosoMocoso/pwnagotchi_custom_ui"]
 	path = Mods/FamosoMocoso/pwnagotchi_custom_ui
 	url = https://github.com/FamosoMocoso/pwnagotchi_custom_ui.git
