@@ -27,5 +27,5 @@
 - [pwnagotchi_LCD_colorized_darkmode](https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode)
   - Last Commit Date: 2023-02-17T05:37:34Z
   - Repository path: https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode
-  - Description: None
+  - Description: This is a mod to change the LCD and web UI of a pwnagotchi with a colorized dark mode
 
