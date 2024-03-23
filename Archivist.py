@@ -60,14 +60,11 @@ def get_repository_description(owner, repo_name):
         return None
 
 def add_submodule(addon_path, folder_name):
-
     parts = addon_path.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    if len(parts) > 5: branch = parts[6]
-    else: branch = "main"
-    print(branch)
-    last_commit_date = get_last_commit_date(addon_path, branch)
+    branch = "main"  # Assuming the default branch is 'main'
+    last_commit_date = get_last_commit_date(addon_path)
     description = None
     addon_name = None
 
@@ -81,7 +78,6 @@ def add_submodule(addon_path, folder_name):
         addon_name = os.path.basename(addon_path)
         file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{relative_path}"
 
-
         if file_url.endswith(".py"):
             response = requests.get(file_url)
             if response.status_code == 200:
@@ -91,15 +87,16 @@ def add_submodule(addon_path, folder_name):
                         desc_part = line.split("=")
                         if len(desc_part) >=2:
                             description = desc_part[1].strip().strip("'").strip('"')
-                        #description = line.split("__description__")[1].strip()
-                        #print(line)
-                        #print(description)
                         break
     else:  # If it's a repository URL
         if not os.path.exists(author_folder):
             os.makedirs(author_folder)
         addon_name = repo_name
         description = get_repository_description(owner, repo_name)
+
+    if owner is None or repo_name is None:
+        print(f"Error: Unable to get repository information for {addon_path}")
+        return None
 
     # Check if the submodule already exists in the index
     submodule_path = os.path.join(author_folder, repo_name)
