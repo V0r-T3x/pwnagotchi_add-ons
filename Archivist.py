@@ -97,7 +97,7 @@ def add_submodule(file_path, folder_name):
 
 def remove_submodules(submodules_list):
     # Remove entries from the .gitmodules file and update the index
-    for submodule_url in submodule_list:
+    for submodule_url in submodules_list:
         parts = submodule_url.split("/")
         author = parts[3]
         repo_name = parts[4].split(".git")[0]
