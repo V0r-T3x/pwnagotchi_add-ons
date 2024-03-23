@@ -189,7 +189,7 @@ def main():
     # Add plugin repositories as submodules and collect information
     for plugin_url in plugins_list:
         submodule_info = add_submodule(plugin_url, "Plugins")
-        print(f"SUBMODULE INFO: {submodule_info}")
+        print(f"SUBMODULE INFO ({plugin_url}): {submodule_info}")
         owner = submodule_info['owner']
         if owner not in plugin_info_dict:
             plugin_info_dict[owner] = []
