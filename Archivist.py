@@ -24,7 +24,10 @@ def get_last_commit_date(repo_url):
     parts = repo_url.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    branch = parts[6]#"main"  # Assuming the default branch is 'main'
+    if len(parts[}) > 4:
+        branch = parts[6]#"main"  # Assuming the default branch is 'main'
+    else:
+        branch = "main"
     
     api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
     headers = {"Accept": "application/vnd.github.v3+json"}
