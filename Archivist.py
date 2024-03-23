@@ -54,6 +54,7 @@ def add_submodule(addon_path, folder_name):
     if addon_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
         file_relative_path = "/".join(parts[5:])
         file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{file_relative_path}"
+        print(file_url)
         addon_name = os.path.basename(addon_path)
 
         if file_url.endswith(".py"):
