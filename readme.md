@@ -1,20 +1,20 @@
 # Plugins
 ## AlienMajik
-- pwnagotchi_plugins
+- adsbsniffer.py
   - Last Commit Date: 2024-03-10T01:14:38Z
   - Description: None
 
 ## LegendEvent
-- pwnagotchi-custom-plugins
+- achievements.py
   - Last Commit Date: 2023-08-26T15:14:32Z
   - Description: None
 
 ## Sniffleupagus
-- pwnagotchi_plugins
+- enable_assoc.py
   - Last Commit Date: 2024-03-23T01:20:13Z
   - Description: None
 
-- pwnagotchi_plugins
+- enable_deauth.py
   - Last Commit Date: 2024-03-23T01:20:13Z
   - Description: None
 
