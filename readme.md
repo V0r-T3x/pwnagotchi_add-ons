@@ -20,7 +20,7 @@
 
 # Mods
 ## V0r-T3x
-- [pwnagotchi_LCD_colorized_darkmode](https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_deauth.py)
+- [pwnagotchi_LCD_colorized_darkmode](https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode)
   - Last Commit Date: 2023-02-17T05:37:34Z
   - Description: None
 
