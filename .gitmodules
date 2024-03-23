@@ -63,3 +63,315 @@
 	path = Plugins/Sniffleupagus/pwnagotchi_plugins
 	url = https://github.com/Sniffleupagus/pwnagotchi_plugins.git
 	branch = main
+[submodule "Plugins/nullm0ose/pwnagotchi-plugin-birthday"]
+	path = Plugins/nullm0ose/pwnagotchi-plugin-birthday
+	url = https://github.com/nullm0ose/pwnagotchi-plugin-birthday.git
+	branch = main
+[submodule "Plugins/Deus73/pwnagotchi-plugins"]
+	path = Plugins/Deus73/pwnagotchi-plugins
+	url = https://github.com/Deus73/pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/diytechtinker/pwnagotchi_plugins"]
+	path = Plugins/diytechtinker/pwnagotchi_plugins
+	url = https://github.com/diytechtinker/pwnagotchi_plugins.git
+	branch = main
+[submodule "Plugins/jayofelony/pwnagotchi-torch-plugins"]
+	path = Plugins/jayofelony/pwnagotchi-torch-plugins
+	url = https://github.com/jayofelony/pwnagotchi-torch-plugins.git
+	branch = main
+[submodule "Plugins/unagisan69/better-button-shim-pwnagotchi"]
+	path = Plugins/unagisan69/better-button-shim-pwnagotchi
+	url = https://github.com/unagisan69/better-button-shim-pwnagotchi.git
+	branch = main
+[submodule "Plugins/hmax42/pwnagotchi-plugins-contrib"]
+	path = Plugins/hmax42/pwnagotchi-plugins-contrib
+	url = https://github.com/hmax42/pwnagotchi-plugins-contrib.git
+	branch = master
+[submodule "Plugins/LoganMD/pwnagotchi-plugins-contrib"]
+	path = Plugins/LoganMD/pwnagotchi-plugins-contrib
+	url = https://github.com/LoganMD/pwnagotchi-plugins-contrib.git
+	branch = master
+[submodule "Plugins/vanshksingh/Pwnagotchi_Plugins"]
+	path = Plugins/vanshksingh/Pwnagotchi_Plugins
+	url = https://github.com/vanshksingh/Pwnagotchi_Plugins.git
+	branch = main
+[submodule "Plugins/Terminatoror/plugins"]
+	path = Plugins/Terminatoror/plugins
+	url = https://github.com/Terminatoror/plugins.git
+	branch = main
+[submodule "Plugins/IdolonInMachina/pwnagotchi-plugins"]
+	path = Plugins/IdolonInMachina/pwnagotchi-plugins
+	url = https://github.com/IdolonInMachina/pwnagotchi-plugins.git
+	branch = master
+[submodule "Plugins/Sliim/pwnagotchi-plugins"]
+	path = Plugins/Sliim/pwnagotchi-plugins
+	url = https://github.com/Sliim/pwnagotchi-plugins.git
+	branch = master
+[submodule "Plugins/do-ki/custom-plugins"]
+	path = Plugins/do-ki/custom-plugins
+	url = https://github.com/do-ki/custom-plugins.git
+	branch = main
+[submodule "Plugins/scorpion3013/pwnagotchi-custom-plugins"]
+	path = Plugins/scorpion3013/pwnagotchi-custom-plugins
+	url = https://github.com/scorpion3013/pwnagotchi-custom-plugins.git
+	branch = master
+[submodule "Plugins/Levi-Michael/pwnagotchi-plugins"]
+	path = Plugins/Levi-Michael/pwnagotchi-plugins
+	url = https://github.com/Levi-Michael/pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/flamebarke/DiscoHash"]
+	path = Plugins/flamebarke/DiscoHash
+	url = https://github.com/flamebarke/DiscoHash.git
+	branch = main
+[submodule "Plugins/Lehniii/discord-notify-plugin-pwnagotchi"]
+	path = Plugins/Lehniii/discord-notify-plugin-pwnagotchi
+	url = https://github.com/Lehniii/discord-notify-plugin-pwnagotchi.git
+	branch = main
+[submodule "Plugins/charagarlnad/pwnagotchi-discord-plugin"]
+	path = Plugins/charagarlnad/pwnagotchi-discord-plugin
+	url = https://github.com/charagarlnad/pwnagotchi-discord-plugin.git
+	branch = master
+[submodule "Plugins/traidento/pwnagotchi-plugins-contrib"]
+	path = Plugins/traidento/pwnagotchi-plugins-contrib
+	url = https://github.com/traidento/pwnagotchi-plugins-contrib.git
+	branch = master
+[submodule "Plugins/7h30th3r0n3/Pwnagotchi-plugins"]
+	path = Plugins/7h30th3r0n3/Pwnagotchi-plugins
+	url = https://github.com/7h30th3r0n3/Pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/c-nagy/pwnagotchi-display-password-plugin"]
+	path = Plugins/c-nagy/pwnagotchi-display-password-plugin
+	url = https://github.com/c-nagy/pwnagotchi-display-password-plugin.git
+	branch = master
+[submodule "Plugins/markenglish/pwnplugins"]
+	path = Plugins/markenglish/pwnplugins
+	url = https://github.com/markenglish/pwnplugins.git
+	branch = master
+[submodule "Plugins/MaliosDark/pwnagotchi-plugins"]
+	path = Plugins/MaliosDark/pwnagotchi-plugins
+	url = https://github.com/MaliosDark/pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/BradlySharpe/pwnagotchi-plugins"]
+	path = Plugins/BradlySharpe/pwnagotchi-plugins
+	url = https://github.com/BradlySharpe/pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/GaelicThunder/Experience-Plugin-Pwnagotchi"]
+	path = Plugins/GaelicThunder/Experience-Plugin-Pwnagotchi
+	url = https://github.com/GaelicThunder/Experience-Plugin-Pwnagotchi.git
+	branch = master
+[submodule "Plugins/Passarb/pwnagotchi_plugins"]
+	path = Plugins/Passarb/pwnagotchi_plugins
+	url = https://github.com/Passarb/pwnagotchi_plugins.git
+	branch = main
+[submodule "Plugins/unagisan69/pwnagotchi-external-wifi-plugin"]
+	path = Plugins/unagisan69/pwnagotchi-external-wifi-plugin
+	url = https://github.com/unagisan69/pwnagotchi-external-wifi-plugin.git
+	branch = main
+[submodule "Plugins/sixt0o/f0xtr0t"]
+	path = Plugins/sixt0o/f0xtr0t
+	url = https://github.com/sixt0o/f0xtr0t.git
+	branch = main
+[submodule "Plugins/xfox64x/pwnagotchi_plugins"]
+	path = Plugins/xfox64x/pwnagotchi_plugins
+	url = https://github.com/xfox64x/pwnagotchi_plugins.git
+	branch = master
+[submodule "Plugins/V0r-T3x/fancygotchi"]
+	path = Plugins/V0r-T3x/fancygotchi
+	url = https://github.com/V0r-T3x/fancygotchi.git
+	branch = main
+[submodule "Plugins/V0r-T3x/Fancytools"]
+	path = Plugins/V0r-T3x/Fancytools
+	url = https://github.com/V0r-T3x/Fancytools.git
+	branch = main
+[submodule "Plugins/iggdawg/pwnagotchi_plugins"]
+	path = Plugins/iggdawg/pwnagotchi_plugins
+	url = https://github.com/iggdawg/pwnagotchi_plugins.git
+	branch = master
+[submodule "Plugins/allordacia/FlipperLink"]
+	path = Plugins/allordacia/FlipperLink
+	url = https://github.com/allordacia/FlipperLink.git
+	branch = main
+[submodule "Plugins/Havivw/Pwnagotchi-plugins"]
+	path = Plugins/Havivw/Pwnagotchi-plugins
+	url = https://github.com/Havivw/Pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/legop3/pwnagotchi-plugins"]
+	path = Plugins/legop3/pwnagotchi-plugins
+	url = https://github.com/legop3/pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/JD-2006/pwnagotchi-plugins-scripts_JD-2006"]
+	path = Plugins/JD-2006/pwnagotchi-plugins-scripts_JD-2006
+	url = https://github.com/JD-2006/pwnagotchi-plugins-scripts_JD-2006.git
+	branch = main
+[submodule "Plugins/crahan/pwnagotchi-plugins"]
+	path = Plugins/crahan/pwnagotchi-plugins
+	url = https://github.com/crahan/pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/kellertk/pwnagotchi-plugin-gpsd"]
+	path = Plugins/kellertk/pwnagotchi-plugin-gpsd
+	url = https://github.com/kellertk/pwnagotchi-plugin-gpsd.git
+	branch = main
+[submodule "Plugins/rai68/gpsd-easy"]
+	path = Plugins/rai68/gpsd-easy
+	url = https://github.com/rai68/gpsd-easy.git
+	branch = main
+[submodule "Plugins/k4n3d4-sh0t4r0/Pwnagotchi_gpsd-upgraded_plugin"]
+	path = Plugins/k4n3d4-sh0t4r0/Pwnagotchi_gpsd-upgraded_plugin
+	url = https://github.com/k4n3d4-sh0t4r0/Pwnagotchi_gpsd-upgraded_plugin.git
+	branch = main
+[submodule "Plugins/allordacia/Pwnagotchi-Handshaker"]
+	path = Plugins/allordacia/Pwnagotchi-Handshaker
+	url = https://github.com/allordacia/Pwnagotchi-Handshaker.git
+	branch = main
+[submodule "Plugins/PwnPeter/pwnagotchi-plugins"]
+	path = Plugins/PwnPeter/pwnagotchi-plugins
+	url = https://github.com/PwnPeter/pwnagotchi-plugins.git
+	branch = master
+[submodule "Plugins/sayak-brm/pwnagotchi-plugins-contrib"]
+	path = Plugins/sayak-brm/pwnagotchi-plugins-contrib
+	url = https://github.com/sayak-brm/pwnagotchi-plugins-contrib.git
+	branch = master
+[submodule "Plugins/jjensn/hashespwnagotchi"]
+	path = Plugins/jjensn/hashespwnagotchi
+	url = https://github.com/jjensn/hashespwnagotchi.git
+	branch = master
+[submodule "Plugins/qLJB/pwnagotchi-http-module"]
+	path = Plugins/qLJB/pwnagotchi-http-module
+	url = https://github.com/qLJB/pwnagotchi-http-module.git
+	branch = main
+[submodule "Plugins/NeonLightning/pwny"]
+	path = Plugins/NeonLightning/pwny
+	url = https://github.com/NeonLightning/pwny.git
+	branch = main
+[submodule "Plugins/mavotronik/pwnagotchi-plugins"]
+	path = Plugins/mavotronik/pwnagotchi-plugins
+	url = https://github.com/mavotronik/pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/inbux/pwnagotchi-plugins"]
+	path = Plugins/inbux/pwnagotchi-plugins
+	url = https://github.com/inbux/pwnagotchi-plugins.git
+	branch = master
+[submodule "Plugins/nobbs/pwnagotchi-nextcloud"]
+	path = Plugins/nobbs/pwnagotchi-nextcloud
+	url = https://github.com/nobbs/pwnagotchi-nextcloud.git
+	branch = master
+[submodule "Plugins/Lehniii/ntfy-message-plugin-pwnagotchi"]
+	path = Plugins/Lehniii/ntfy-message-plugin-pwnagotchi
+	url = https://github.com/Lehniii/ntfy-message-plugin-pwnagotchi.git
+	branch = main
+[submodule "Plugins/necrosato/phwn_hwm"]
+	path = Plugins/necrosato/phwn_hwm
+	url = https://github.com/necrosato/phwn_hwm.git
+	branch = master
+[submodule "Plugins/Andyzug/PiBatPwnagotchi-Plugin"]
+	path = Plugins/Andyzug/PiBatPwnagotchi-Plugin
+	url = https://github.com/Andyzug/PiBatPwnagotchi-Plugin.git
+	branch = master
+[submodule "Plugins/tisboyo/pwnagotchi-pisugar2-plugin"]
+	path = Plugins/tisboyo/pwnagotchi-pisugar2-plugin
+	url = https://github.com/tisboyo/pwnagotchi-pisugar2-plugin.git
+	branch = master
+[submodule "Plugins/rai68/pwnagotchi-pisugar2-plugin"]
+	path = Plugins/rai68/pwnagotchi-pisugar2-plugin
+	url = https://github.com/rai68/pwnagotchi-pisugar2-plugin.git
+	branch = master
+[submodule "Plugins/taiyonemo/pwnagotchi-plugin-pisugar3"]
+	path = Plugins/taiyonemo/pwnagotchi-plugin-pisugar3
+	url = https://github.com/taiyonemo/pwnagotchi-plugin-pisugar3.git
+	branch = main
+[submodule "Plugins/nullm0ose/pwnagotchi-plugin-pisugar3"]
+	path = Plugins/nullm0ose/pwnagotchi-plugin-pisugar3
+	url = https://github.com/nullm0ose/pwnagotchi-plugin-pisugar3.git
+	branch = main
+[submodule "Plugins/sn0wflakeAU/powerutils"]
+	path = Plugins/sn0wflakeAU/powerutils
+	url = https://github.com/sn0wflakeAU/powerutils.git
+	branch = master
+[submodule "Plugins/cantcodesheet/pwnagotchi-print-to-screen"]
+	path = Plugins/cantcodesheet/pwnagotchi-print-to-screen
+	url = https://github.com/cantcodesheet/pwnagotchi-print-to-screen.git
+	branch = main
+[submodule "Plugins/GlennPegden2/privacy-nightmare-pwnagotchi-plugin"]
+	path = Plugins/GlennPegden2/privacy-nightmare-pwnagotchi-plugin
+	url = https://github.com/GlennPegden2/privacy-nightmare-pwnagotchi-plugin.git
+	branch = master
+[submodule "Plugins/Brets0150/pwnagotchi-to-hashtopolis-plugin"]
+	path = Plugins/Brets0150/pwnagotchi-to-hashtopolis-plugin
+	url = https://github.com/Brets0150/pwnagotchi-to-hashtopolis-plugin.git
+	branch = main
+[submodule "Plugins/itsdarklikehell/pwnspeaker"]
+	path = Plugins/itsdarklikehell/pwnspeaker
+	url = https://github.com/itsdarklikehell/pwnspeaker.git
+	branch = master
+[submodule "Plugins/sn0wflakeAU/pwnmenu"]
+	path = Plugins/sn0wflakeAU/pwnmenu
+	url = https://github.com/sn0wflakeAU/pwnmenu.git
+	branch = main
+[submodule "Plugins/ad/pwnmothership"]
+	path = Plugins/ad/pwnmothership
+	url = https://github.com/ad/pwnmothership.git
+	branch = master
+[submodule "Plugins/Matt-London/pwnagotchi-flipper"]
+	path = Plugins/Matt-London/pwnagotchi-flipper
+	url = https://github.com/Matt-London/pwnagotchi-flipper.git
+	branch = main
+[submodule "Plugins/xenDE/pwnagotchi-plugin-timesync"]
+	path = Plugins/xenDE/pwnagotchi-plugin-timesync
+	url = https://github.com/xenDE/pwnagotchi-plugin-timesync.git
+	branch = master
+[submodule "Plugins/Terminatoror/Pwnagotchi-RestartPlugin"]
+	path = Plugins/Terminatoror/Pwnagotchi-RestartPlugin
+	url = https://github.com/Terminatoror/Pwnagotchi-RestartPlugin.git
+	branch = main
+[submodule "Plugins/0xRoM/pwnagotchi"]
+	path = Plugins/0xRoM/pwnagotchi
+	url = https://github.com/0xRoM/pwnagotchi.git
+	branch = master
+[submodule "Plugins/Omodaka9375/pwnagotchi-slack-plugin"]
+	path = Plugins/Omodaka9375/pwnagotchi-slack-plugin
+	url = https://github.com/Omodaka9375/pwnagotchi-slack-plugin.git
+	branch = main
+[submodule "Plugins/xenDE/pwnagotchi-plugin-sound"]
+	path = Plugins/xenDE/pwnagotchi-plugin-sound
+	url = https://github.com/xenDE/pwnagotchi-plugin-sound.git
+	branch = master
+[submodule "Plugins/dipsylala/pwnagotchi-state-api"]
+	path = Plugins/dipsylala/pwnagotchi-state-api
+	url = https://github.com/dipsylala/pwnagotchi-state-api.git
+	branch = master
+[submodule "Plugins/simonecris/TeleGotchi"]
+	path = Plugins/simonecris/TeleGotchi
+	url = https://github.com/simonecris/TeleGotchi.git
+	branch = main
+[submodule "Plugins/alistar79/pwnagotchi_theme_script_kicker_plugin"]
+	path = Plugins/alistar79/pwnagotchi_theme_script_kicker_plugin
+	url = https://github.com/alistar79/pwnagotchi_theme_script_kicker_plugin.git
+	branch = master
+[submodule "Plugins/wpa-2/telegram.py"]
+	path = Plugins/wpa-2/telegram.py
+	url = https://github.com/wpa-2/telegram.py.git
+	branch = main
+[submodule "Plugins/marbasec/UPSLite_Plugin_1_3"]
+	path = Plugins/marbasec/UPSLite_Plugin_1_3
+	url = https://github.com/marbasec/UPSLite_Plugin_1_3.git
+	branch = main
+[submodule "Plugins/Brets0150/pwnagotchi-plugin-wanmon"]
+	path = Plugins/Brets0150/pwnagotchi-plugin-wanmon
+	url = https://github.com/Brets0150/pwnagotchi-plugin-wanmon.git
+	branch = main
+[submodule "Plugins/cyberartemio/wardriver-pwnagotchi-plugin"]
+	path = Plugins/cyberartemio/wardriver-pwnagotchi-plugin
+	url = https://github.com/cyberartemio/wardriver-pwnagotchi-plugin.git
+	branch = main
+[submodule "Plugins/xenDE/pwnagotchi-plugin-webgpsmap"]
+	path = Plugins/xenDE/pwnagotchi-plugin-webgpsmap
+	url = https://github.com/xenDE/pwnagotchi-plugin-webgpsmap.git
+	branch = master
+[submodule "Plugins/cyberartemio/wof-pwnagotchi-plugin"]
+	path = Plugins/cyberartemio/wof-pwnagotchi-plugin
+	url = https://github.com/cyberartemio/wof-pwnagotchi-plugin.git
+	branch = main
+[submodule "Plugins/dbukovac/pwnagotchi-plugins-contrib"]
+	path = Plugins/dbukovac/pwnagotchi-plugins-contrib
+	url = https://github.com/dbukovac/pwnagotchi-plugins-contrib.git
+	branch = master
