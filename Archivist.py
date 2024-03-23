@@ -24,7 +24,7 @@ def get_last_commit_date(repo_url):
     parts = repo_url.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    if len(parts[}) > 4:
+    if len(parts[]) > 4:
         branch = parts[6]#"main"  # Assuming the default branch is 'main'
     else:
         branch = "main"
