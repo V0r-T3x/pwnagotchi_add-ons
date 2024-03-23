@@ -1,26 +1,26 @@
 # Plugins
 ## AlienMajik
-- [adsbsniffer.py](Plugins/AlienMajik/pwnagotchi_plugins)
+- [adsbsniffer.py](https://github.com/AlienMajik/pwnagotchi_plugins/blob/main/adsbsniffer.py)
   - Last Commit Date: 2024-03-10T01:14:38Z
   - Description: None
 
 ## LegendEvent
-- [achievements.py](Plugins/LegendEvent/pwnagotchi-custom-plugins)
+- [achievements.py](https://github.com/LegendEvent/pwnagotchi-custom-plugins/blob/main/achievements.py)
   - Last Commit Date: 2023-08-26T15:14:32Z
   - Description: None
 
 ## Sniffleupagus
-- [enable_assoc.py](Plugins/Sniffleupagus/pwnagotchi_plugins)
+- [enable_assoc.py](https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_assoc.py)
   - Last Commit Date: 2024-03-23T01:20:13Z
   - Description: None
 
-- [enable_deauth.py](Plugins/Sniffleupagus/pwnagotchi_plugins)
+- [enable_deauth.py](https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_deauth.py)
   - Last Commit Date: 2024-03-23T01:20:13Z
   - Description: None
 
 # Mods
 ## V0r-T3x
-- [pwnagotchi_LCD_colorized_darkmode](Plugins/Sniffleupagus/pwnagotchi_plugins)
+- [pwnagotchi_LCD_colorized_darkmode](https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_deauth.py)
   - Last Commit Date: 2023-02-17T05:37:34Z
   - Description: None
 
