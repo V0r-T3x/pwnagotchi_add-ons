@@ -78,6 +78,7 @@ def add_submodule(addon_path, folder_name):
             "owner": owner,
             "addon_name": addon_name,
             "repo_name": repo_name,
+            "repo_path": parts[0] + "//" + parts[2] + "/" + parts[3] + "/" + parts[4],
             "branch": branch,
             "last_commit_date": last_commit_date,
             "file_relative_path": None,
@@ -95,6 +96,7 @@ def add_submodule(addon_path, folder_name):
         "owner": owner,
         "addon_name": addon_name,
         "repo_name": repo_name,
+        "repo_path": parts[0] + "//" + parts[2] + "/" + parts[3] + "/" + parts[4],
         "branch": branch,
         "last_commit_date": last_commit_date,
         "file_relative_path": file_relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
@@ -178,6 +180,7 @@ def main():
             for plugin_info in sorted(plugins, key=lambda x: x['repo_name']):
                 readme_file.write(f"- [{plugin_info['addon_name']}]({plugin_info['path']})\n")
                 readme_file.write(f"  - Last Commit Date: {plugin_info['last_commit_date']}\n")
+                readme_file.write(f"  - Repository path: {plugin_info['repo_path']}\n")
                 readme_file.write(f"  - Description: {plugin_info['description']}\n\n")
 
         # Write mod information to readme.md
@@ -187,6 +190,7 @@ def main():
             for mod_info in sorted(mods, key=lambda x: x['repo_name']):
                 readme_file.write(f"- [{mod_info['addon_name']}]({mod_info['path']})\n")
                 readme_file.write(f"  - Last Commit Date: {mod_info['last_commit_date']}\n")
+                readme_file.write(f"  - Repository path: {mod_info['repo_path']}\n")
                 readme_file.write(f"  - Description: {mod_info['description']}\n\n")
 
 
