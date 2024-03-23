@@ -140,6 +140,10 @@ def main():
         submodule_info = add_submodule(plugin_url, "Plugins")
         print(submodule_info)
 
+    for mods_url in mods_list:
+        submodule_info = add_submodule(mmods_url, "Plugins")
+        print(submodule_info)
+
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
