@@ -7,3 +7,19 @@
 	path = Plugins/AlienMajik/pwnagotchi_plugins
 	url = https://github.com/AlienMajik/pwnagotchi_plugins.git
 	branch = main
+[submodule "Plugins/bryzz42o/Pwnagotchi-fsociety-plugins"]
+	path = Plugins/bryzz42o/Pwnagotchi-fsociety-plugins
+	url = https://github.com/bryzz42o/Pwnagotchi-fsociety-plugins.git
+	branch = main
+[submodule "Plugins/hannadiamond/pwnagotchi-plugins"]
+	path = Plugins/hannadiamond/pwnagotchi-plugins
+	url = https://github.com/hannadiamond/pwnagotchi-plugins.git
+	branch = main
+[submodule "Plugins/Kaska89/pwnagotchi-EXPv2-plugin"]
+	path = Plugins/Kaska89/pwnagotchi-EXPv2-plugin
+	url = https://github.com/Kaska89/pwnagotchi-EXPv2-plugin.git
+	branch = main
+[submodule "Plugins/evilsocket/pwnagotchi-plugins-contrib"]
+	path = Plugins/evilsocket/pwnagotchi-plugins-contrib
+	url = https://github.com/evilsocket/pwnagotchi-plugins-contrib.git
+	branch = master
