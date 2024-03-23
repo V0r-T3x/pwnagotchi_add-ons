@@ -23,3 +23,15 @@
 	path = Plugins/evilsocket/pwnagotchi-plugins-contrib
 	url = https://github.com/evilsocket/pwnagotchi-plugins-contrib.git
 	branch = master
+[submodule "Plugins/dadav/pwnagotchi-custom-plugins"]
+	path = Plugins/dadav/pwnagotchi-custom-plugins
+	url = https://github.com/dadav/pwnagotchi-custom-plugins.git
+	branch = master
+[submodule "Plugins/itsdarklikehell/apprise-notify"]
+	path = Plugins/itsdarklikehell/apprise-notify
+	url = https://github.com/itsdarklikehell/apprise-notify.git
+	branch = main
+[submodule "Plugins/itsdarklikehell/pwnagotchi-plugins"]
+	path = Plugins/itsdarklikehell/pwnagotchi-plugins
+	url = https://github.com/itsdarklikehell/pwnagotchi-plugins.git
+	branch = master

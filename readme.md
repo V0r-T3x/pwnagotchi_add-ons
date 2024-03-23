@@ -23,15 +23,37 @@
   - Repository path: https://github.com/bryzz42o/Pwnagotchi-fsociety-plugins
   - Description: None
 
+## dadav
+- [apfaker.py](https://github.com/dadav/pwnagotchi-custom-plugins/blob/master/apfaker.py)
+  - Last Commit Date: 2020-10-10T13:54:09Z
+  - Repository path: https://github.com/dadav/pwnagotchi-custom-plugins
+  - Description: Creates fake aps.
+
 ## evilsocket
 - [aircrackonly.py](https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/aircrackonly.py)
   - Last Commit Date: 2021-01-24T15:21:02Z
   - Repository path: https://github.com/evilsocket/pwnagotchi-plugins-contrib
   - Description: confirm pcap contains handshake/PMKID or delete it
 
+- [auto_backup.py](https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/auto_backup.py)
+  - Last Commit Date: 2021-01-24T15:21:02Z
+  - Repository path: https://github.com/evilsocket/pwnagotchi-plugins-contrib
+  - Description: This plugin backups files when internet is available.
+
 ## hannadiamond
 - [age.py](https://github.com/hannadiamond/pwnagotchi-plugins/blob/main/plugins/age.py)
   - Last Commit Date: 2022-03-07T05:17:05Z
   - Repository path: https://github.com/hannadiamond/pwnagotchi-plugins
   - Description: A plugin that will add age and strength stats based on epochs and trained epochs
+
+## itsdarklikehell
+- [apprise-notify.py](https://github.com/itsdarklikehell/apprise-notify/blob/main/apprise-notify.py)
+  - Last Commit Date: 2021-08-07T17:59:56Z
+  - Repository path: https://github.com/itsdarklikehell/apprise-notify
+  - Description: An Apprise plugin for pwnagotchi that implements all the available callbacks.
+
+- [auto-hotspot.py](https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/auto-hotspot.py)
+  - Last Commit Date: 2024-03-15T23:55:16Z
+  - Repository path: https://github.com/itsdarklikehell/pwnagotchi-plugins
+  - Description: (
 
