@@ -135,24 +135,57 @@ def main():
     subprocess.run(["git", "config", "--global", "user.email", "70115207+V0r-T3x@users.noreply.github.com"])
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
-    # Add plugin repositories as submodules
-    #for plugin_url in plugins_list:
-    #    submodule_info = add_submodule(plugin_url, "Plugins")
-    #    print(submodule_info)
+    plugin_info_dict = {}
+    mod_info_dict = {}
 
-    #for mods_url in mods_list:
-    #    submodule_info = add_submodule(mods_url, "Mods")
-    #    print(submodule_info)
+    # Add plugin repositories as submodules and collect information
+    for plugin_url in plugins_list:
+        submodule_info = add_submodule(plugin_url, "Plugins")
+        print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in plugin_info_dict:
+            plugin_info_dict[owner] = []
+        plugin_info_dict[owner].append(submodule_info)
+
+    # Add mod repositories as submodules and collect information
+    for mod_url in mods_list:
+        submodule_info = add_submodule(mod_url, "Mods")
+        print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in mod_info_dict:
+            mod_info_dict[owner] = []
+        mod_info_dict[owner].append(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
+    # Create a new readme.md file
+    with open("readme.md", "w") as readme_file:
+        # Write plugin information to readme.md
+        readme_file.write("# Plugins\n")
+        for owner, plugins in sorted(plugin_info_dict.items()):
+            readme_file.write(f"## {owner}\n")
+            for plugin_info in sorted(plugins, key=lambda x: x['repo_name']):
+                readme_file.write(f"- {plugin_info['repo_name']}\n")
+                readme_file.write(f"  - Last Commit Date: {plugin_info['last_commit_date']}\n")
+                readme_file.write(f"  - Description: {plugin_info['description']}\n\n")
+
+        # Write mod information to readme.md
+        readme_file.write("# Mods\n")
+        for owner, mods in sorted(mod_info_dict.items()):
+            readme_file.write(f"## {owner}\n")
+            for mod_info in sorted(mods, key=lambda x: x['repo_name']):
+                readme_file.write(f"- {mod_info['repo_name']}\n")
+                readme_file.write(f"  - Last Commit Date: {mod_info['last_commit_date']}\n")
+                readme_file.write(f"  - Description: {mod_info['description']}\n\n")
+
+
     # Remove plugins submodules and author folders
     #remove_submodules(plugins_list, "Plugins")
 
     # Remove mods submodules and author folders
-    remove_submodules(mods_list, "Mods")
+    #remove_submodules(mods_list, "Mods")
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
