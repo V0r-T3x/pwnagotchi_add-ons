@@ -112,8 +112,8 @@ def remove_submodules(submodules_list):
     subprocess.run(["git", "commit", "-m", "Remove submodule entries from .gitmodules"])
 
     # Remove the submodule directories
-    for file_url in plugin_list:
-        parts = file_url.split("/")
+    for submodule_url in submodules_list:
+        parts = submodule_url.split("/")
         author = parts[3]
         repo_name = parts[4].split(".git")[0]
         submodule_path = os.path.join("Plugins", author, repo_name)
