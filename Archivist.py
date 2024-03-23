@@ -19,33 +19,30 @@ mods_list = codex_data["mods"]["list"]
 apps_list = codex_data["apps"]["list"]
 
 # Function to get the last commit date of a file in a repository
-def get_last_commit_date(repo_url):
+def get_last_commit_date(repo_url, branch="main"):
     print(f"Repository address: {repo_url}")
     parts = repo_url.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    branches = ["main", "master"]  # List of branches to try
     
-    for branch in branches:
-        api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
-        headers = {"Accept": "application/vnd.github.v3+json"}
-        
-        try:
-            response = requests.get(api_url, headers=headers)
-            response.raise_for_status()
-            commit_data = response.json()
-            last_commit_date = commit_data["commit"]["author"]["date"]
-            return last_commit_date
-        except requests.HTTPError as e:
-            if response.status_code == 422:
-                print(f"Error fetching last commit date for {repo_url}: Unprocessable Entity")
-            else:
-                print(f"Error fetching last commit date for {repo_url}: {e}")
-        except Exception as e:
-            print(f"Error fetching last commit date for {repo_url}: {e}")
+    api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
+    headers = {"Accept": "application/vnd.github.v3+json"}
     
-    # If all attempts fail, return None
-    return None
+    try:
+        response = requests.get(api_url, headers=headers)
+        response.raise_for_status()
+        commit_data = response.json()
+        last_commit_date = commit_data["commit"]["author"]["date"]
+        return last_commit_date
+    except requests.HTTPError as e:
+        if response.status_code == 422:
+            print(f"Error fetching last commit date for {repo_url} on branch {branch}: Unprocessable Entity")
+        else:
+            print(f"Error fetching last commit date for {repo_url} on branch {branch}: {e}")
+        return None
+    except Exception as e:
+        print(f"Error fetching last commit date for {repo_url} on branch {branch}: {e}")
+        return None
 
 def get_repository_description(owner, repo_name):
     branches = ["main", "master"]  # List of branches to try
