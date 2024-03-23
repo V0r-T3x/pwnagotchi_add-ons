@@ -188,22 +188,22 @@ def main():
     script_info_dict = {}
 
     # Add plugin repositories as submodules and collect information
-    #for plugin_url in plugins_list:
-    #    submodule_info = add_submodule(plugin_url, "Plugins")
-    #    #print(submodule_info)
-    #    owner = submodule_info['owner']
-    #    if owner not in plugin_info_dict:
-    #        plugin_info_dict[owner] = []
-    #    plugin_info_dict[owner].append(submodule_info)
+    for plugin_url in plugins_list:
+        submodule_info = add_submodule(plugin_url, "Plugins")
+        #print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in plugin_info_dict:
+            plugin_info_dict[owner] = []
+        plugin_info_dict[owner].append(submodule_info)
 
     # Add mod repositories as submodules and collect information
-    #for mod_url in mods_list:
-    #    submodule_info = add_submodule(mod_url, "Mods")
-    #    #print(submodule_info)
-    #    owner = submodule_info['owner']
-    #    if owner not in mod_info_dict:
-    #        mod_info_dict[owner] = []
-    #    mod_info_dict[owner].append(submodule_info)
+    for mod_url in mods_list:
+        submodule_info = add_submodule(mod_url, "Mods")
+        #print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in mod_info_dict:
+            mod_info_dict[owner] = []
+        mod_info_dict[owner].append(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
@@ -233,10 +233,10 @@ def main():
 
 
     # Remove plugins submodules and author folders
-    remove_submodules(plugins_list, "Plugins")
+    #remove_submodules(plugins_list, "Plugins")
 
     # Remove mods submodules and author folders
-    remove_submodules(mods_list, "Mods")
+    #remove_submodules(mods_list, "Mods")
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
