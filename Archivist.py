@@ -38,9 +38,9 @@ def get_last_commit_date(repo_url):
         print(f"Error fetching last commit date for {repo_url}: {e}")
         return None
 
-def add_submodule(file_path, folder_name):
+def add_submodule(submodule_path, folder_name):
 
-    parts = file_path.split("/")
+    parts = submodule_path.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
     branch = "main"  # Assuming the default branch is 'main'
@@ -74,6 +74,7 @@ def add_submodule(file_path, folder_name):
     if os.path.exists(submodule_path):
         print(f"Submodule {submodule_path} already exists. Skipping...")
         return {
+            "path": submodule_path,
             "owner": owner,
             "addon_name": addon_name,
             "repo_name": repo_name,
@@ -90,6 +91,7 @@ def add_submodule(file_path, folder_name):
     subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
 
     return {
+        "path": submodule_path,
         "owner": owner,
         "addon_name": addon_name,
         "repo_name": repo_name,
@@ -139,9 +141,11 @@ def remove_submodules(submodules_list, folder_name):
 def main():
     subprocess.run(["git", "config", "--global", "user.email", "70115207+V0r-T3x@users.noreply.github.com"])
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
-    
-    plugin_info_dict = {}
+
+    app_info_dict = {}
     mod_info_dict = {}
+    plugin_info_dict = {}
+    script_info_dict = {}
 
     # Add plugin repositories as submodules and collect information
     for plugin_url in plugins_list:
