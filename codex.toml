@@ -10,7 +10,7 @@ list = [
     "https://github.com/itsdarklikehell/apprise-notify/blob/main/apprise-notify.py",
     "https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/auto_backup.py",
     "https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/auto-hotspot.py",
-    #"https://github.com/evilsocket/pwnagotchi/blob/master/pwnagotchi/plugins/default/auto-update.py",
+    "https://github.com/evilsocket/pwnagotchi/blob/master/pwnagotchi/plugins/default/auto-update.py",
     "https://github.com/troystauffer/home_base/blob/master/away_base.py",
     "https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/banthex-de.py",
     "https://github.com/V0r-T3x/pwnagotchi_plugins/blob/main/plugins/banthex.py",
