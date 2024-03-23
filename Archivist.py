@@ -136,23 +136,23 @@ def main():
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
     # Add plugin repositories as submodules
-    for plugin_url in plugins_list:
-        submodule_info = add_submodule(plugin_url, "Plugins")
-        print(submodule_info)
+    #for plugin_url in plugins_list:
+    #    submodule_info = add_submodule(plugin_url, "Plugins")
+    #    print(submodule_info)
 
-    for mods_url in mods_list:
-        submodule_info = add_submodule(mods_url, "Mods")
-        print(submodule_info)
+    #for mods_url in mods_list:
+    #    submodule_info = add_submodule(mods_url, "Mods")
+    #    print(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
     # Remove plugins submodules and author folders
-    #remove_submodules(plugins_list)
+    remove_submodules(plugins_list)
 
     # Remove mods submodules and author folders
-    #remove_submodules(mods_list)
+    remove_submodules(mods_list)
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
