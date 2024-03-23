@@ -185,7 +185,7 @@ def main():
         for owner, mods in sorted(mod_info_dict.items()):
             readme_file.write(f"## {owner}\n")
             for mod_info in sorted(mods, key=lambda x: x['repo_name']):
-                readme_file.write(f"- [{mod_info['addon_name']}]({plugin_info['path']})\n")
+                readme_file.write(f"- [{mod_info['addon_name']}]({mod_info['path']})\n")
                 readme_file.write(f"  - Last Commit Date: {mod_info['last_commit_date']}\n")
                 readme_file.write(f"  - Description: {mod_info['description']}\n\n")
 
