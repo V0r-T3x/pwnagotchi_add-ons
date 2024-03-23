@@ -115,6 +115,13 @@ def add_submodule(addon_path, folder_name):
             "description": description
         }
 
+    # Check if the submodule already exists in .gitmodules
+    with open(".gitmodules", "r") as gitmodules_file:
+        gitmodules_content = gitmodules_file.read()
+        if submodule_path in gitmodules_content:
+            print(f"Submodule {submodule_path} already exists in .gitmodules. Skipping...")
+            return None
+
     # Construct the clone URL
     clone_url = f"https://github.com/{owner}/{repo_name}.git"
     
@@ -132,7 +139,6 @@ def add_submodule(addon_path, folder_name):
         "relative_path": relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
         "description": description
     }
-
 
 def remove_submodules(submodules_list, folder_name):
     # Remove entries from the .gitmodules file and update the index
