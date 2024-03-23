@@ -221,14 +221,14 @@ def main():
                 readme_file.write(f"  - Description: {plugin_info['description']}\n\n")
 
         # Write mod information to readme.md
-        #readme_file.write("# Mods\n")
-        #for owner, mods in sorted(mod_info_dict.items()):
-        #    readme_file.write(f"## {owner}\n")
-        #    for mod_info in sorted(mods, key=lambda x: x['repo_name']):
-        #        readme_file.write(f"- [{mod_info['addon_name']}]({mod_info['path']})\n")
-        #        readme_file.write(f"  - Last Commit Date: {mod_info['last_commit_date']}\n")
-        #        readme_file.write(f"  - Repository path: {mod_info['repo_path']}\n")
-        #        readme_file.write(f"  - Description: {mod_info['description']}\n\n")
+        readme_file.write("# Mods\n")
+        for owner, mods in sorted(mod_info_dict.items()):
+            readme_file.write(f"## {owner}\n")
+            for mod_info in sorted(mods, key=lambda x: x['repo_name']):
+                readme_file.write(f"- [{mod_info['addon_name']}]({mod_info['path']})\n")
+                readme_file.write(f"  - Last Commit Date: {mod_info['last_commit_date']}\n")
+                readme_file.write(f"  - Repository path: {mod_info['repo_path']}\n")
+                readme_file.write(f"  - Description: {mod_info['description']}\n\n")
 
 
     # Remove plugins submodules and author folders
