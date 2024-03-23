@@ -95,7 +95,7 @@ def add_submodule(file_path, folder_name):
     }
 
 
-def remove_submodules(submodules_list):
+def remove_submodules(submodules_list, folder_name):
     # Remove entries from the .gitmodules file and update the index
     for submodule_url in submodules_list:
         parts = submodule_url.split("/")
@@ -116,7 +116,7 @@ def remove_submodules(submodules_list):
         parts = submodule_url.split("/")
         author = parts[3]
         repo_name = parts[4].split(".git")[0]
-        submodule_path = os.path.join("Plugins", author, repo_name)
+        submodule_path = os.path.join(folder_name, author, repo_name)
         if os.path.exists(submodule_path):
             try:
                 shutil.rmtree(submodule_path)
