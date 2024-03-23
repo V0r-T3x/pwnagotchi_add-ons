@@ -1,0 +1,18 @@
+[plugins]
+list = [
+    "https://github.com/LegendEvent/pwnagotchi-custom-plugins/blob/main/achievements.py",
+    "https://github.com/AlienMajik/pwnagotchi_plugins/blob/main/adsbsniffer.py",
+    "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_assoc.py",
+    "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_deauth.py",
+]
+
+[scripts]
+list = []
+
+[mods]
+list = [
+    "https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode",
+]
+
+[apps]
+list = []
