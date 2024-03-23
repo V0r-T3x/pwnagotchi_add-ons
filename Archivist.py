@@ -44,17 +44,17 @@ def add_submodule(submodule_path, folder_name):
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
     branch = "main"  # Assuming the default branch is 'main'
-    last_commit_date = get_last_commit_date(file_path)
+    last_commit_date = get_last_commit_date(submodule_path)
     description = None
     addon_name = None
 
     # Create the author folder if it doesn't exist
     author_folder = os.path.join(folder_name, owner)
 
-    if file_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
+    if submodule_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
         file_relative_path = "/".join(parts[5:])
         file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{file_relative_path}"
-        addon_name = os.path.basename(file_path)
+        addon_name = os.path.basename(submodule_path)
 
         if file_url.endswith(".py"):
             response = requests.get(file_url)
@@ -97,7 +97,7 @@ def add_submodule(submodule_path, folder_name):
         "repo_name": repo_name,
         "branch": branch,
         "last_commit_date": last_commit_date,
-        "file_relative_path": file_relative_path if file_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
+        "file_relative_path": file_relative_path if submodule_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
         "description": description
     }
 
