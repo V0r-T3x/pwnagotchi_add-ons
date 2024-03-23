@@ -203,7 +203,7 @@ def main():
     #    owner = submodule_info['owner']
     #    if owner not in mod_info_dict:
     #        mod_info_dict[owner] = []
-    3    mod_info_dict[owner].append(submodule_info)
+    #    mod_info_dict[owner].append(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
