@@ -1,1 +1,5 @@
 
+[submodule "Plugins/evilsocket/pwnagotchi"]
+	path = Plugins/evilsocket/pwnagotchi
+	url = https://github.com/evilsocket/pwnagotchi.git
+	branch = master
