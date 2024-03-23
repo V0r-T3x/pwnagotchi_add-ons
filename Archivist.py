@@ -24,80 +24,73 @@ def get_last_commit_date(repo_url):
     parts = repo_url.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    branch = "main"  # Assuming the default branch is 'main'
+    branches = ["main", "master"]  # List of branches to try
     
-    api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
-    headers = {"Accept": "application/vnd.github.v3+json"}
-    
-    try:
-        response = requests.get(api_url, headers=headers)
-        response.raise_for_status()
-        commit_data = response.json()
-        last_commit_date = commit_data["commit"]["author"]["date"]
-        return last_commit_date
-    except requests.HTTPError as e:
-        if response.status_code == 422:
-            print(f"Error fetching last commit date for {repo_url}: Unprocessable Entity")
-        else:
+    for branch in branches:
+        api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
+        headers = {"Accept": "application/vnd.github.v3+json"}
+        
+        try:
+            response = requests.get(api_url, headers=headers)
+            response.raise_for_status()
+            commit_data = response.json()
+            last_commit_date = commit_data["commit"]["author"]["date"]
+            return last_commit_date
+        except requests.HTTPError as e:
+            if response.status_code == 422:
+                print(f"Error fetching last commit date for {repo_url}: Unprocessable Entity")
+            else:
+                print(f"Error fetching last commit date for {repo_url}: {e}")
+        except Exception as e:
             print(f"Error fetching last commit date for {repo_url}: {e}")
-        return None
-    except Exception as e:
-        print(f"Error fetching last commit date for {repo_url}: {e}")
-        return None
+    
+    # If all attempts fail, return None
+    return None
 
 def get_repository_description(owner, repo_name):
-    api_url = f"https://api.github.com/repos/{owner}/{repo_name}"
-    headers = {"Accept": "application/vnd.github.v3+json"}
+    branches = ["main", "master"]  # List of branches to try
+    
+    for branch in branches:
+        api_url = f"https://api.github.com/repos/{owner}/{repo_name}/contents/README.md?ref={branch}"
+        headers = {"Accept": "application/vnd.github.v3+json"}
 
-    try:
-        response = requests.get(api_url, headers=headers)
-        response.raise_for_status()
-        repo_data = response.json()
-        description = repo_data["description"]
-        return description
-    except requests.RequestException as e:
-        print(f"Error fetching repository description for {owner}/{repo_name}: {e}")
-        return None
+        try:
+            response = requests.get(api_url, headers=headers)
+            response.raise_for_status()
+            readme_data = response.json()
+            description = base64.b64decode(readme_data["content"]).decode('utf-8')
+            return description.strip()
+        except requests.RequestException as e:
+            print(f"Error fetching repository description for {owner}/{repo_name} on branch {branch}: {e}")
+        except Exception as e:
+            print(f"Error fetching repository description for {owner}/{repo_name} on branch {branch}: {e}")
+    
+    # If all attempts fail, return None
+    return None
 
 def add_submodule(addon_path, folder_name):
-
     parts = addon_path.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    branch = "main"  # Assuming the default branch is 'main'
-    last_commit_date = get_last_commit_date(addon_path)
+    branches = ["main", "master"]  # List of branches to try
+    last_commit_date = None
     description = None
     addon_name = None
 
     # Create the author folder if it doesn't exist
     author_folder = os.path.join(folder_name, owner)
 
-    if addon_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
-        print(f"add-on path: {addon_path}")
-        relative_path = "/".join(parts[7:])
-        print(f"relative path: {relative_path}")
-        addon_name = os.path.basename(addon_path)
-        file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{relative_path}"
-
-
-        if file_url.endswith(".py"):
-            response = requests.get(file_url)
-            if response.status_code == 200:
-                lines = response.text.split("\n")
-                for line in lines:
-                    if "__description__" in line:
-                        desc_part = line.split("=")
-                        if len(desc_part) >=2:
-                            description = desc_part[1].strip().strip("'").strip('"')
-                        #description = line.split("__description__")[1].strip()
-                        #print(line)
-                        #print(description)
-                        break
-    else:  # If it's a repository URL
-        if not os.path.exists(author_folder):
-            os.makedirs(author_folder)
-        addon_name = repo_name
+    for branch in branches:
+        # Attempt to retrieve last commit date and description for the branch
+        last_commit_date = get_last_commit_date(addon_path, branch)
         description = get_repository_description(owner, repo_name)
+
+        if last_commit_date and description:
+            break  # Break the loop if both last commit date and description are successfully retrieved
+
+    if not (last_commit_date and description):
+        print(f"Failed to fetch last commit date and description for {addon_path}. Skipping...")
+        return None
 
     # Check if the submodule already exists in the index
     submodule_path = os.path.join(author_folder, repo_name)
@@ -111,7 +104,6 @@ def add_submodule(addon_path, folder_name):
             "repo_path": parts[0] + "//" + parts[2] + "/" + parts[3] + "/" + parts[4],
             "branch": branch,
             "last_commit_date": last_commit_date,
-            "relative_path": relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
             "description": description
         }
 
@@ -124,7 +116,7 @@ def add_submodule(addon_path, folder_name):
 
     # Construct the clone URL
     clone_url = f"https://github.com/{owner}/{repo_name}.git"
-    
+
     # Add the repository as a submodule within the author folder
     subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
 
@@ -136,7 +128,6 @@ def add_submodule(addon_path, folder_name):
         "repo_path": parts[0] + "//" + parts[2] + "/" + parts[3] + "/" + parts[4],
         "branch": branch,
         "last_commit_date": last_commit_date,
-        "relative_path": relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
         "description": description
     }
 
