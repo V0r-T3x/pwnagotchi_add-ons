@@ -72,7 +72,9 @@ def add_submodule(addon_path, folder_name):
     author_folder = os.path.join(folder_name, owner)
 
     if addon_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
+        print(addon_path)
         relative_path = "/".join(parts[5:])
+        print(relative_path)
         file_relative_path = relative_path.split("blob/main/", 1)[1]
         file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{file_relative_path}"
         #print(file_url)
