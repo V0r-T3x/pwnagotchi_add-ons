@@ -64,7 +64,8 @@ def add_submodule(addon_path, folder_name):
     parts = addon_path.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    branch = parts[6]
+    if len(parts) > 5: branch = parts[6]
+    else: branch = "main"
     print(branch)
     last_commit_date = get_last_commit_date(addon_path, branch)
     description = None
