@@ -19,15 +19,12 @@ mods_list = codex_data["mods"]["list"]
 apps_list = codex_data["apps"]["list"]
 
 # Function to get the last commit date of a file in a repository
-def get_last_commit_date(repo_url):
+def get_last_commit_date(repo_url, branch):
     print(f"Repository address: {repo_url}")
     parts = repo_url.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    if len(parts) > 4:
-        branch = parts[6]#"main"  # Assuming the default branch is 'main'
-    else:
-        branch = "main"
+    #branch = "main"  # Assuming the default branch is 'main'
     
     api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
     headers = {"Accept": "application/vnd.github.v3+json"}
@@ -68,7 +65,8 @@ def add_submodule(addon_path, folder_name):
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
     branch = parts[6]
-    last_commit_date = get_last_commit_date(addon_path)
+    print(branch)
+    last_commit_date = get_last_commit_date(addon_path, branch)
     description = None
     addon_name = None
 
