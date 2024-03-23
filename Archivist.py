@@ -96,9 +96,9 @@ def add_submodule(addon_path, folder_name):
         addon_name = repo_name
         description = get_repository_description(owner, repo_name)
 
-    if owner is None or repo_name is None:
-        print(f"Error: Unable to get repository information for {addon_path}")
-        return None
+    #if owner is None or repo_name is None:
+    #    print(f"Error: Unable to get repository information for {addon_path}")
+    #    return None
 
     # Check if the submodule already exists in the index
     submodule_path = os.path.join(author_folder, repo_name)
@@ -121,7 +121,7 @@ def add_submodule(addon_path, folder_name):
         gitmodules_content = gitmodules_file.read()
         if submodule_path in gitmodules_content:
             print(f"Submodule {submodule_path} already exists in .gitmodules. Skipping...")
-            return None
+            #return None
         else:
             # Construct the clone URL
             clone_url = f"https://github.com/{owner}/{repo_name}.git"
