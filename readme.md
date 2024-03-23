@@ -43,25 +43,25 @@
 
 ## dadav
 - [apfaker.py](https://github.com/dadav/pwnagotchi-custom-plugins/blob/master/apfaker.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2020-10-10T13:54:09Z
   - Repository path: https://github.com/dadav/pwnagotchi-custom-plugins
-  - Description: None
+  - Description: Creates fake aps.
 
 ## evilsocket
 - [auto-update.py](https://github.com/evilsocket/pwnagotchi/blob/master/pwnagotchi/plugins/default/auto-update.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2023-10-11T11:07:12Z
   - Repository path: https://github.com/evilsocket/pwnagotchi
-  - Description: None
+  - Description: This plugin checks when updates are available and applies them when internet is available.
 
 - [aircrackonly.py](https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/aircrackonly.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2021-01-24T15:21:02Z
   - Repository path: https://github.com/evilsocket/pwnagotchi-plugins-contrib
-  - Description: None
+  - Description: confirm pcap contains handshake/PMKID or delete it
 
 - [auto_backup.py](https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/auto_backup.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2021-01-24T15:21:02Z
   - Repository path: https://github.com/evilsocket/pwnagotchi-plugins-contrib
-  - Description: None
+  - Description: This plugin backups files when internet is available.
 
 ## hannadiamond
 - [age.py](https://github.com/hannadiamond/pwnagotchi-plugins/blob/main/plugins/age.py)
@@ -76,20 +76,20 @@
   - Description: An Apprise plugin for pwnagotchi that implements all the available callbacks.
 
 - [auto-hotspot.py](https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/auto-hotspot.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2024-03-15T23:55:16Z
   - Repository path: https://github.com/itsdarklikehell/pwnagotchi-plugins
-  - Description: None
+  - Description: (
 
 - [banthex-de.py](https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/banthex-de.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2024-03-15T23:55:16Z
   - Repository path: https://github.com/itsdarklikehell/pwnagotchi-plugins
-  - Description: None
+  - Description: (
 
 ## kripthor
 - [beacons.py](https://github.com/kripthor/pwnagotchi-beacons/blob/master/plugin/beacons.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2019-11-15T11:52:26Z
   - Repository path: https://github.com/kripthor/pwnagotchi-beacons
-  - Description: None
+  - Description: A plugin that advertises pwnagotchi state via valid WiFi beacons.
 
 ## shir0tetsuo
 - [basiclight.py](https://github.com/shir0tetsuo/pwnagotchi-plugins/blob/main/basiclight.py)
@@ -99,9 +99,9 @@
 
 ## troystauffer
 - [away_base.py](https://github.com/troystauffer/home_base/blob/master/away_base.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2021-09-17T12:58:08Z
   - Repository path: https://github.com/troystauffer/home_base
-  - Description: None
+  - Description: watches for known networks, connects for a while, then returns to recon
 
 # Mods
 ## FamosoMocoso
