@@ -38,6 +38,20 @@ def get_last_commit_date(repo_url):
         print(f"Error fetching last commit date for {repo_url}: {e}")
         return None
 
+def get_repository_description(owner, repo_name):
+    api_url = f"https://api.github.com/repos/{owner}/{repo_name}"
+    headers = {"Accept": "application/vnd.github.v3+json"}
+
+    try:
+        response = requests.get(api_url, headers=headers)
+        response.raise_for_status()
+        repo_data = response.json()
+        description = repo_data["description"]
+        return description
+    except requests.RequestException as e:
+        print(f"Error fetching repository description for {owner}/{repo_name}: {e}")
+        return None
+
 def add_submodule(addon_path, folder_name):
 
     parts = addon_path.split("/")
@@ -75,6 +89,7 @@ def add_submodule(addon_path, folder_name):
         if not os.path.exists(author_folder):
             os.makedirs(author_folder)
         addon_name = repo_name
+        description = get_repository_description(owner, repo_name)
 
     # Check if the submodule already exists in the index
     submodule_path = os.path.join(author_folder, repo_name)
