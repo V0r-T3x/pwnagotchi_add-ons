@@ -75,7 +75,7 @@ def add_submodule(addon_path, folder_name):
         relative_path = "/".join(parts[5:])
         file_relative_path = relative_path.split("blob/main/", 1)[1]
         file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{file_relative_path}"
-        print(file_url)
+        #print(file_url)
         addon_name = os.path.basename(addon_path)
 
         if file_url.endswith(".py"):
@@ -88,8 +88,8 @@ def add_submodule(addon_path, folder_name):
                         if len(desc_part) >=2:
                             description = desc_part[1].strip().strip("'").strip('"')
                         #description = line.split("__description__")[1].strip()
-                        print(line)
-                        print(description)
+                        #print(line)
+                        #print(description)
                         break
     else:  # If it's a repository URL
         if not os.path.exists(author_folder):
@@ -180,7 +180,7 @@ def main():
     # Add plugin repositories as submodules and collect information
     for plugin_url in plugins_list:
         submodule_info = add_submodule(plugin_url, "Plugins")
-        print(submodule_info)
+        #print(submodule_info)
         owner = submodule_info['owner']
         if owner not in plugin_info_dict:
             plugin_info_dict[owner] = []
@@ -189,7 +189,7 @@ def main():
     # Add mod repositories as submodules and collect information
     for mod_url in mods_list:
         submodule_info = add_submodule(mod_url, "Mods")
-        print(submodule_info)
+        #print(submodule_info)
         owner = submodule_info['owner']
         if owner not in mod_info_dict:
             mod_info_dict[owner] = []
