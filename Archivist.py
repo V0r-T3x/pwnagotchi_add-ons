@@ -38,23 +38,23 @@ def get_last_commit_date(repo_url):
         print(f"Error fetching last commit date for {repo_url}: {e}")
         return None
 
-def add_submodule(submodule_path, folder_name):
+def add_submodule(addon_path, folder_name):
 
-    parts = submodule_path.split("/")
+    parts = addon_path.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
     branch = "main"  # Assuming the default branch is 'main'
-    last_commit_date = get_last_commit_date(submodule_path)
+    last_commit_date = get_last_commit_date(addon_path)
     description = None
     addon_name = None
 
     # Create the author folder if it doesn't exist
     author_folder = os.path.join(folder_name, owner)
 
-    if submodule_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
+    if addon_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
         file_relative_path = "/".join(parts[5:])
         file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{file_relative_path}"
-        addon_name = os.path.basename(submodule_path)
+        addon_name = os.path.basename(addon_path)
 
         if file_url.endswith(".py"):
             response = requests.get(file_url)
@@ -74,7 +74,7 @@ def add_submodule(submodule_path, folder_name):
     if os.path.exists(submodule_path):
         print(f"Submodule {submodule_path} already exists. Skipping...")
         return {
-            "path": submodule_path,
+            "path": addon_path,
             "owner": owner,
             "addon_name": addon_name,
             "repo_name": repo_name,
@@ -91,13 +91,13 @@ def add_submodule(submodule_path, folder_name):
     subprocess.run(["git", "submodule", "add", "--branch", branch, clone_url, submodule_path], cwd=os.getcwd())  # Set working directory
 
     return {
-        "path": submodule_path,
+        "path": addon_path,
         "owner": owner,
         "addon_name": addon_name,
         "repo_name": repo_name,
         "branch": branch,
         "last_commit_date": last_commit_date,
-        "file_relative_path": file_relative_path if submodule_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
+        "file_relative_path": file_relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
         "description": description
     }
 
