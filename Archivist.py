@@ -196,13 +196,13 @@ def main():
         plugin_info_dict[owner].append(submodule_info)
 
     # Add mod repositories as submodules and collect information
-    #for mod_url in mods_list:
-    #    submodule_info = add_submodule(mod_url, "Mods")
-    #    #print(submodule_info)
-    #    owner = submodule_info['owner']
-    #    if owner not in mod_info_dict:
-    #        mod_info_dict[owner] = []
-    #    mod_info_dict[owner].append(submodule_info)
+    for mod_url in mods_list:
+        submodule_info = add_submodule(mod_url, "Mods")
+        #print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in mod_info_dict:
+            mod_info_dict[owner] = []
+        mod_info_dict[owner].append(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
