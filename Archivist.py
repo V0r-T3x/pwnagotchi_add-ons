@@ -82,7 +82,7 @@ def add_submodule(addon_path, folder_name):
             #print(file_url)
             addon_name = os.path.basename(addon_path)
         else:
-            print(f"Error: 'blob/main/' not found in the URL. {}")
+            print(f"Error: 'blob/main/' not found in the URL. {relative_path}")
             # Handle this case according to your requirements, such as skipping adding the submodule or setting file_relative_path to None.
             file_relative_path = None
             addon_name = None
