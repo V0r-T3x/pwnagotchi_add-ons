@@ -2,15 +2,21 @@ import os
 import subprocess
 import shutil
 import requests
+import toml
 
-# List of plugins to include in the archive
-plugin_list = [
-    "https://github.com/LegendEvent/pwnagotchi-custom-plugins/blob/main/achievements.py",
-    "https://github.com/AlienMajik/pwnagotchi_plugins/blob/main/adsbsniffer.py",
-    "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_assoc.py",
-    "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/enable_deauth.py",
-    "https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode",
-]
+# Get the path to the codex.toml file
+script_dir = os.path.dirname(os.path.abspath(__file__))
+codex_path = os.path.join(script_dir, "codex.toml")
+
+# Load the contents of codex.toml
+with open(codex_path, "r") as file:
+    codex_data = toml.load(file)
+
+# Access the sections and their lists
+plugins_list = codex_data["plugins"]["list"]
+scripts_list = codex_data["scripts"]["list"]
+mods_list = codex_data["mods"]["list"]
+apps_list = codex_data["apps"]["list"]
 
 # Function to get the last commit date of a file in a repository
 def get_last_commit_date(repo_url):
@@ -89,10 +95,10 @@ def add_submodule(file_path, folder_name):
     }
 
 
-def remove_submodules():
+def remove_submodules(submodules_list):
     # Remove entries from the .gitmodules file and update the index
-    for file_url in plugin_list:
-        parts = file_url.split("/")
+    for submodule_url in submodule_list:
+        parts = submodule_url.split("/")
         author = parts[3]
         repo_name = parts[4].split(".git")[0]
         submodule_path = os.path.join("Plugins", author, repo_name)
@@ -130,16 +136,16 @@ def main():
     subprocess.run(["git", "config", "--global", "user.name", "V0r-T3x"])
     
     # Add plugin repositories as submodules
-    ##for plugin_url in plugin_list:
-    #    submodule_info = add_submodule(plugin_url, "Plugins")
-    #    print(submodule_info)
+    for plugin_url in plugins_list:
+        submodule_info = add_submodule(plugin_url, "Plugins")
+        print(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
     subprocess.run(["git", "submodule", "update"], cwd=os.getcwd())  # Set working directory
 
-    # Remove submodules and author folders
-    remove_submodules()
+    # Remove plugins submodules and author folders
+    #remove_submodules(plugins_list)
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
