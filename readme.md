@@ -41,6 +41,12 @@
   - Repository path: https://github.com/bryzz42o/Pwnagotchi-fsociety-plugins
   - Description: None
 
+## evilsocket
+- [aircrackonly.py](https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/aircrackonly.py)
+  - Last Commit Date: None
+  - Repository path: https://github.com/evilsocket/pwnagotchi-plugins-contrib
+  - Description: None
+
 ## hannadiamond
 - [age.py](https://github.com/hannadiamond/pwnagotchi-plugins/blob/main/plugins/age.py)
   - Last Commit Date: 2022-03-07T05:17:05Z
