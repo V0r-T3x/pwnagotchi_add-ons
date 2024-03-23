@@ -188,13 +188,13 @@ def main():
     script_info_dict = {}
 
     # Add plugin repositories as submodules and collect information
-    #for plugin_url in plugins_list:
-    #    submodule_info = add_submodule(plugin_url, "Plugins")
-    #    #print(submodule_info)
-    #    owner = submodule_info['owner']
-    #    if owner not in plugin_info_dict:
-    #        plugin_info_dict[owner] = []
-    #    plugin_info_dict[owner].append(submodule_info)
+    for plugin_url in plugins_list:
+        submodule_info = add_submodule(plugin_url, "Plugins")
+        print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in plugin_info_dict:
+            plugin_info_dict[owner] = []
+        plugin_info_dict[owner].append(submodule_info)
 
     # Add mod repositories as submodules and collect information
     #for mod_url in mods_list:
@@ -233,10 +233,10 @@ def main():
 
 
     # Remove plugins submodules and author folders
-    remove_submodules(plugins_list, "Plugins")
+    #remove_submodules(plugins_list, "Plugins")
 
     # Remove mods submodules and author folders
-    remove_submodules(mods_list, "Mods")
+    #remove_submodules(mods_list, "Mods")
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
