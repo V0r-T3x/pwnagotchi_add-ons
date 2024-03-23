@@ -35,7 +35,7 @@
 
 ## BradlySharpe
 - [enterprise.py](https://github.com/BradlySharpe/pwnagotchi-plugins/blob/main/enterprise.py)
-  - Last Commit Date: 2022-06-26T23:43:30Z
+  - Last Commit Date: None
   - Repository path: https://github.com/BradlySharpe/pwnagotchi-plugins
   - Description: This plugin will attempt to obtain credentials from enterprise networks when bored and networks are available.
 
@@ -118,7 +118,7 @@
 
 ## GaelicThunder
 - [exp.py](https://github.com/GaelicThunder/Experience-Plugin-Pwnagotchi/blob/master/exp.py)
-  - Last Commit Date: 2023-05-15T07:07:52Z
+  - Last Commit Date: None
   - Repository path: https://github.com/GaelicThunder/Experience-Plugin-Pwnagotchi
   - Description: Get exp every time a handshake get captured.
 
@@ -739,7 +739,7 @@
   - Description: This makes the display reachable over bluetooth
 
 - [example.py](https://github.com/evilsocket/pwnagotchi/blob/master/pwnagotchi/plugins/default/example.py)
-  - Last Commit Date: 2023-10-11T11:07:12Z
+  - Last Commit Date: None
   - Repository path: https://github.com/evilsocket/pwnagotchi
   - Description: An example plugin for pwnagotchi that implements all the available callbacks.
 
@@ -1208,4 +1208,35 @@
   - Last Commit Date: None
   - Repository path: https://github.com/xfox64x/pwnagotchi_plugins
   - Description: Run a quick dictionary scan against captured handshakes, update wpa_supplicant for the supplied interface, and go straight to jail.
+
+# Mods
+## FamosoMocoso
+- [pwnagotchi_custom_ui](https://github.com/FamosoMocoso/pwnagotchi_custom_ui)
+  - Last Commit Date: None
+  - Repository path: https://github.com/FamosoMocoso/pwnagotchi_custom_ui
+  - Description: None
+
+## NoxiousKarn
+- [Showerthoughts](https://github.com/NoxiousKarn/Showerthoughts)
+  - Last Commit Date: None
+  - Repository path: https://github.com/NoxiousKarn/Showerthoughts
+  - Description: None
+
+## V0r-T3x
+- [pwnagotchi_LCD_colorized_darkmode](https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode)
+  - Last Commit Date: None
+  - Repository path: https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode
+  - Description: None
+
+## roodriiigooo
+- [PWNAGOTCHI-CUSTOM-FACES-MOD](https://github.com/roodriiigooo/PWNAGOTCHI-CUSTOM-FACES-MOD)
+  - Last Commit Date: None
+  - Repository path: https://github.com/roodriiigooo/PWNAGOTCHI-CUSTOM-FACES-MOD
+  - Description: None
+
+## solution-libre
+- [pwnagotchi-hdmi-viewer](https://github.com/solution-libre/pwnagotchi-hdmi-viewer)
+  - Last Commit Date: None
+  - Repository path: https://github.com/solution-libre/pwnagotchi-hdmi-viewer
+  - Description: None
 
