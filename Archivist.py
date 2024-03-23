@@ -63,6 +63,7 @@ def add_submodule(addon_path, folder_name):
                 for line in lines:
                     if "__description__" in line:
                         description = line.split("__description__")[1].strip()
+                        print(line)
                         break
     else:  # If it's a repository URL
         if not os.path.exists(author_folder):
