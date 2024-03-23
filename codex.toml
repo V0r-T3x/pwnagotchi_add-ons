@@ -18,6 +18,7 @@ list = [
     "https://github.com/arturandre/pwnagotchi-beacon-plugins/blob/main/beaconify.py",
     "https://github.com/kripthor/pwnagotchi-beacons/blob/master/plugin/beacons.py",
     "https://github.com/SilenTree12th/pwnagotchi_plugins/blob/main/better_apfaker.py",
+    "https://github.com/Sniffleupagus/pwnagotchi_plugins/blob/main/blemon_plugin.py",
 ]
 
 [scripts]
