@@ -20,6 +20,7 @@ apps_list = codex_data["apps"]["list"]
 
 # Function to get the last commit date of a file in a repository
 def get_last_commit_date(repo_url):
+    print(f"Repository address: {repo_url}")
     parts = repo_url.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
