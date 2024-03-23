@@ -16,7 +16,7 @@ list = [
     "https://github.com/V0r-T3x/pwnagotchi_plugins/blob/main/plugins/banthex.py",
     "https://github.com/shir0tetsuo/pwnagotchi-plugins/blob/main/basiclight.py",
     "https://github.com/arturandre/pwnagotchi-beacon-plugins/blob/main/beaconify.py",
-    "https://github.com/kripthor/pwnagotchi-beacons/blob/master/plugin/beacons.py",
+    #"https://github.com/kripthor/pwnagotchi-beacons/blob/master/plugin/beacons.py",
     "https://github.com/SilenTree12th/pwnagotchi_plugins/blob/main/better_apfaker.py",
 ]
 
