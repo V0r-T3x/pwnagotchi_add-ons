@@ -35,7 +35,7 @@
 
 ## BradlySharpe
 - [enterprise.py](https://github.com/BradlySharpe/pwnagotchi-plugins/blob/main/enterprise.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2022-06-26T23:43:30Z
   - Repository path: https://github.com/BradlySharpe/pwnagotchi-plugins
   - Description: This plugin will attempt to obtain credentials from enterprise networks when bored and networks are available.
 
@@ -118,7 +118,7 @@
 
 ## GaelicThunder
 - [exp.py](https://github.com/GaelicThunder/Experience-Plugin-Pwnagotchi/blob/master/exp.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2023-05-15T07:07:52Z
   - Repository path: https://github.com/GaelicThunder/Experience-Plugin-Pwnagotchi
   - Description: Get exp every time a handshake get captured.
 
@@ -739,7 +739,7 @@
   - Description: This makes the display reachable over bluetooth
 
 - [example.py](https://github.com/evilsocket/pwnagotchi/blob/master/pwnagotchi/plugins/default/example.py)
-  - Last Commit Date: None
+  - Last Commit Date: 2023-10-11T11:07:12Z
   - Repository path: https://github.com/evilsocket/pwnagotchi
   - Description: An example plugin for pwnagotchi that implements all the available callbacks.
 
