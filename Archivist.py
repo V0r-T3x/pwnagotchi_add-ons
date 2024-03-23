@@ -111,7 +111,7 @@ def add_submodule(addon_path, folder_name):
             "repo_path": parts[0] + "//" + parts[2] + "/" + parts[3] + "/" + parts[4],
             "branch": branch,
             "last_commit_date": last_commit_date,
-            "file_relative_path": file_relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
+            "relative_path": relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
             "description": description
         }
 
@@ -129,7 +129,7 @@ def add_submodule(addon_path, folder_name):
         "repo_path": parts[0] + "//" + parts[2] + "/" + parts[3] + "/" + parts[4],
         "branch": branch,
         "last_commit_date": last_commit_date,
-        "file_relative_path": file_relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
+        "relative_path": relative_path if addon_path.endswith(('.py', '.txt', '.json', '.csv')) else None,
         "description": description
     }
 
