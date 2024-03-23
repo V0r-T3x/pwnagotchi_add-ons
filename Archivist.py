@@ -3,7 +3,6 @@ import subprocess
 import shutil
 import requests
 import toml
-import re
 
 # Get the path to the codex.toml file
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -64,22 +63,10 @@ def add_submodule(addon_path, folder_name):
             if response.status_code == 200:
                 lines = response.text.split("\n")
                 for line in lines:
-                    # Regular expression pattern to match the description line
-                    pattern = r"^__description__ = '(.*)'$"
-                    
-                    # Search for the pattern in the line
-                    match = re.match(pattern, line)
-                    
-                    # Check if a match is found
-                    if match:
-                        # Extract the description text
-                        description = match.group(1)
-                        print(line)
-                        print(description)
-                    #if "__description__" in line:
+                    if "__description__" in line:
                         
-                        #description = line.split("__description__")[1].strip()
-                        #print(line)
+                        description = line.split("__description__")[1].strip()
+                        print(line)
                         break
     else:  # If it's a repository URL
         if not os.path.exists(author_folder):
