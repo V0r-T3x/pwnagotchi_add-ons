@@ -141,7 +141,7 @@ def main():
         print(submodule_info)
 
     for mods_url in mods_list:
-        submodule_info = add_submodule(mmods_url, "Plugins")
+        submodule_info = add_submodule(mods_url, "Mods")
         print(submodule_info)
 
     # Initialize and update submodules
@@ -150,6 +150,9 @@ def main():
 
     # Remove plugins submodules and author folders
     #remove_submodules(plugins_list)
+
+    # Remove mods submodules and author folders
+    #remove_submodules(mods_list)
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
