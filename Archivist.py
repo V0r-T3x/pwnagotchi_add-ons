@@ -74,18 +74,10 @@ def add_submodule(addon_path, folder_name):
 
     if addon_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
         print(f"add-on path: {addon_path}")
-        relative_path = "/".join(parts[5:])
+        relative_path = "/".join(parts[7:])
         print(f"relative path: {relative_path}")
-        if "blob/main/" in relative_path:
-            file_relative_path = relative_path.split("/blob/main/", 1)[1]
-            file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{file_relative_path}"
-            #print(file_url)
-            addon_name = os.path.basename(addon_path)
-        else:
-            print(f"Error: 'blob/main/' not found in the URL. {relative_path}")
-            # Handle this case according to your requirements, such as skipping adding the submodule or setting file_relative_path to None.
-            file_relative_path = None
-            addon_name = None
+        addon_name = os.path.basename(addon_path)
+
 
         if file_url.endswith(".py"):
             response = requests.get(file_url)
