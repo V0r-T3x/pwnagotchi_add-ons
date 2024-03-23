@@ -46,6 +46,7 @@ def add_submodule(file_path, folder_name):
     branch = "main"  # Assuming the default branch is 'main'
     last_commit_date = get_last_commit_date(file_path)
     description = None
+    addon_name = None
 
     # Create the author folder if it doesn't exist
     author_folder = os.path.join(folder_name, owner)
@@ -53,6 +54,7 @@ def add_submodule(file_path, folder_name):
     if file_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
         file_relative_path = "/".join(parts[5:])
         file_url = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}/{file_relative_path}"
+        addon_name = os.path.basename(file_path)
 
         if file_url.endswith(".py"):
             response = requests.get(file_url)
@@ -65,6 +67,7 @@ def add_submodule(file_path, folder_name):
     else:  # If it's a repository URL
         if not os.path.exists(author_folder):
             os.makedirs(author_folder)
+        addon_name = repo_name
 
     # Check if the submodule already exists in the index
     submodule_path = os.path.join(author_folder, repo_name)
@@ -72,6 +75,7 @@ def add_submodule(file_path, folder_name):
         print(f"Submodule {submodule_path} already exists. Skipping...")
         return {
             "owner": owner,
+            "addon_name": addon_name,
             "repo_name": repo_name,
             "branch": branch,
             "last_commit_date": last_commit_date,
@@ -87,6 +91,7 @@ def add_submodule(file_path, folder_name):
 
     return {
         "owner": owner,
+        "addon_name": addon_name,
         "repo_name": repo_name,
         "branch": branch,
         "last_commit_date": last_commit_date,
@@ -167,7 +172,7 @@ def main():
         for owner, plugins in sorted(plugin_info_dict.items()):
             readme_file.write(f"## {owner}\n")
             for plugin_info in sorted(plugins, key=lambda x: x['repo_name']):
-                readme_file.write(f"- {plugin_info['repo_name']}\n")
+                readme_file.write(f"- {plugin_info['addon_name']}\n")
                 readme_file.write(f"  - Last Commit Date: {plugin_info['last_commit_date']}\n")
                 readme_file.write(f"  - Description: {plugin_info['description']}\n\n")
 
@@ -176,7 +181,7 @@ def main():
         for owner, mods in sorted(mod_info_dict.items()):
             readme_file.write(f"## {owner}\n")
             for mod_info in sorted(mods, key=lambda x: x['repo_name']):
-                readme_file.write(f"- {mod_info['repo_name']}\n")
+                readme_file.write(f"- {mod_info['addon_name']}\n")
                 readme_file.write(f"  - Last Commit Date: {mod_info['last_commit_date']}\n")
                 readme_file.write(f"  - Description: {mod_info['description']}\n\n")
 
