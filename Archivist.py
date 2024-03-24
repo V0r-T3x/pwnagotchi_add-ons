@@ -3,6 +3,7 @@ import subprocess
 import shutil
 import requests
 import toml
+import time
 
 # Get the path to the codex.toml file
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -24,7 +25,6 @@ def get_last_commit_date(repo_url, branch):
     parts = repo_url.split("/")
     owner = parts[3]
     repo_name = parts[4].split(".git")[0]
-    #branch = "main"  # Assuming the default branch is 'main'
     
     api_url = f"https://api.github.com/repos/{owner}/{repo_name}/commits/{branch}"
     headers = {"Accept": "application/vnd.github.v3+json"}
@@ -36,7 +36,11 @@ def get_last_commit_date(repo_url, branch):
         last_commit_date = commit_data["commit"]["author"]["date"]
         return last_commit_date
     except requests.HTTPError as e:
-        if response.status_code == 422:
+        if response.status_code == 403:
+            print(f"Error fetching last commit date for {repo_url}: Rate limit exceeded. Retrying in 60 seconds...")
+            time.sleep(60)  # Wait for 60 seconds and retry
+            return get_last_commit_date(repo_url, branch)
+        elif response.status_code == 422:
             print(f"Error fetching last commit date for {repo_url}: Unprocessable Entity")
         else:
             print(f"Error fetching last commit date for {repo_url}: {e}")
@@ -45,6 +49,7 @@ def get_last_commit_date(repo_url, branch):
         print(f"Error fetching last commit date for {repo_url}: {e}")
         return None
 
+# Function to get the description of a GitHub repository
 def get_repository_description(owner, repo_name):
     api_url = f"https://api.github.com/repos/{owner}/{repo_name}"
     headers = {"Accept": "application/vnd.github.v3+json"}
@@ -55,7 +60,15 @@ def get_repository_description(owner, repo_name):
         repo_data = response.json()
         description = repo_data["description"]
         return description
-    except requests.RequestException as e:
+    except requests.HTTPError as e:
+        if response.status_code == 403:
+            print(f"Error fetching repository description for {owner}/{repo_name}: Rate limit exceeded. Retrying in 60 seconds...")
+            time.sleep(60)  # Wait for 60 seconds and retry
+            return get_repository_description(owner, repo_name)
+        else:
+            print(f"Error fetching repository description for {owner}/{repo_name}: {e}")
+            return None
+    except Exception as e:
         print(f"Error fetching repository description for {owner}/{repo_name}: {e}")
         return None
 
