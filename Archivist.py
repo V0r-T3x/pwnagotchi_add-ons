@@ -102,6 +102,12 @@ def add_submodule(addon_path, folder_name):
                         desc_part = line.split("=")
                         if len(desc_part) >=2:
                             description = desc_part[1].strip().strip("'").strip('"')
+                        break    
+                for line in lines:
+                    if "__author__" in line:
+                        desc_part = line.split("=")
+                        if len(desc_part) >=2:
+                            author = desc_part[1].strip().strip("'").strip('"')
                         break
     else:  # If it's a repository URL
         if not os.path.exists(author_folder):
@@ -120,6 +126,7 @@ def add_submodule(addon_path, folder_name):
         return {
             "path": addon_path,
             "owner": owner,
+            "author": author,
             "addon_name": addon_name,
             "repo_name": repo_name,
             "repo_path": parts[0] + "//" + parts[2] + "/" + parts[3] + "/" + parts[4],
@@ -200,22 +207,40 @@ def main():
     script_info_dict = {}
 
     # Add plugin repositories as submodules and collect information
-    #for plugin_url in plugins_list:
-    #    submodule_info = add_submodule(plugin_url, "Plugins")
-    #    print(f"SUBMODULE INFO ({plugin_url}): {submodule_info}")
-    #    owner = submodule_info['owner']
-    #    if owner not in plugin_info_dict:
-    #        plugin_info_dict[owner] = []
-    #    plugin_info_dict[owner].append(submodule_info)
+    for plugin_url in plugins_list:
+        submodule_info = add_submodule(plugin_url, "Plugins")
+        print(f"SUBMODULE INFO ({plugin_url}): {submodule_info}")
+        owner = submodule_info['owner']
+        if owner not in plugin_info_dict:
+            plugin_info_dict[owner] = []
+        plugin_info_dict[owner].append(submodule_info)
 
     # Add mod repositories as submodules and collect information
-    #for mod_url in mods_list:
-    #    submodule_info = add_submodule(mod_url, "Mods")
-    #    #print(submodule_info)
-    #    owner = submodule_info['owner']
-    #    if owner not in mod_info_dict:
-    #        mod_info_dict[owner] = []
-    #    mod_info_dict[owner].append(submodule_info)
+    for mod_url in mods_list:
+        submodule_info = add_submodule(mod_url, "Mods")
+        #print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in mod_info_dict:
+            mod_info_dict[owner] = []
+        mod_info_dict[owner].append(submodule_info)
+
+    # Add script repositories as submodules and collect information
+    for script_url in scripts_list:
+        submodule_info = add_submodule(script_url, "Scripts")
+        #print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in script_info_dict:
+            script_info_dict[owner] = []
+        script_info_dict[owner].append(submodule_info)
+
+    # Add app repositories as submodules and collect information
+    for app_url in apps_list:
+        submodule_info = add_submodule(app_url, "Apps")
+        #print(submodule_info)
+        owner = submodule_info['owner']
+        if owner not in app_info_dict:
+            app_info_dict[owner] = []
+        app_info_dict[owner].append(submodule_info)
 
     # Initialize and update submodules
     subprocess.run(["git", "submodule", "init"], cwd=os.getcwd())  # Set working directory
@@ -229,6 +254,7 @@ def main():
             readme_file.write(f"## {owner}\n")
             for plugin_info in sorted(plugins, key=lambda x: x['repo_name']):
                 readme_file.write(f"- [{plugin_info['addon_name']}]({plugin_info['path']})\n")
+                readme_file.write(f"  - Author signature: {plugin_info['author']}\n")
                 readme_file.write(f"  - Last Commit Date: {plugin_info['last_commit_date']}\n")
                 readme_file.write(f"  - Repository path: {plugin_info['repo_path']}\n")
                 readme_file.write(f"  - Description: {plugin_info['description']}\n\n")
@@ -239,6 +265,7 @@ def main():
             readme_file.write(f"## {owner}\n")
             for mod_info in sorted(mods, key=lambda x: x['repo_name']):
                 readme_file.write(f"- [{mod_info['addon_name']}]({mod_info['path']})\n")
+                readme_file.write(f"  - Author signature: {mod_info['author']}\n")
                 readme_file.write(f"  - Last Commit Date: {mod_info['last_commit_date']}\n")
                 readme_file.write(f"  - Repository path: {mod_info['repo_path']}\n")
                 readme_file.write(f"  - Description: {mod_info['description']}\n\n")
@@ -249,6 +276,7 @@ def main():
                 readme_file.write(f"## {owner}\n")
                 for app_info in sorted(apps, key=lambda x: x['repo_name']):
                     readme_file.write(f"- [{app_info['addon_name']}]({app_info['path']})\n")
+                    readme_file.write(f"  - Author signature: {app_info['author']}\n")
                     readme_file.write(f"  - Last Commit Date: {app_info['last_commit_date']}\n")
                     readme_file.write(f"  - Repository path: {app_info['repo_path']}\n")
                     readme_file.write(f"  - Description: {app_info['description']}\n\n")
@@ -259,6 +287,7 @@ def main():
                 readme_file.write(f"## {owner}\n")
                 for script_info in sorted(scripts, key=lambda x: x['repo_name']):
                     readme_file.write(f"- [{script_info['addon_name']}]({script_info['path']})\n")
+                    readme_file.write(f"  - Author signature: {script_info['author']}\n")
                     readme_file.write(f"  - Last Commit Date: {script_info['last_commit_date']}\n")
                     readme_file.write(f"  - Repository path: {script_info['repo_path']}\n")
                     readme_file.write(f"  - Description: {script_info['description']}\n\n")
