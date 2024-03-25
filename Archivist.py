@@ -87,7 +87,7 @@ def add_submodule(addon_path, folder_name):
     # Create the author folder if it doesn't exist
     author_folder = os.path.join(folder_name, owner)
 
-    if addon_path.endswith(('.py', '.txt', '.json', '.csv')):  # If it's a file URL
+    if addon_path.endswith(('.py', '.txt', '.json', '.csv', '.sh')):  # If it's a file URL
         print(f"add-on path: {addon_path}")
         relative_path = "/".join(parts[7:])
         print(f"relative path: {relative_path}")
