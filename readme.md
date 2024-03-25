@@ -117,6 +117,27 @@
   - Description: Pwnagotchi output via HDMI
 
 # Apps
+## CyrisXD
+- [Pwnagetty](https://github.com/CyrisXD/Pwnagetty/blob/master)
+  - Author signature: CyrisXD
+  - Last Commit Date: 2020-09-22T04:09:37Z
+  - Repository path: https://github.com/CyrisXD/Pwnagetty
+  - Description: Pwnagotchi automation - get your handshakes and convert in one go. 
+
+## neexz
+- [pwnagotchi-ui-designer](https://github.com/neexz/pwnagotchi-ui-designer/blob/main)
+  - Author signature: neexz
+  - Last Commit Date: 2022-01-23T13:58:59Z
+  - Repository path: https://github.com/neexz/pwnagotchi-ui-designer
+  - Description: https://pwnagotchi.ai/ | Cute little friend UI designer if you don't have pwnagotchi in real life made in C#
+
+## silsha
+- [pwnagotchi.app](https://github.com/silsha/pwnagotchi.app/blob/master)
+  - Author signature: silsha
+  - Last Commit Date: 2019-12-31T19:11:44Z
+  - Repository path: https://github.com/silsha/pwnagotchi.app
+  - Description: Pwnagotchi App for iOS, iPadOS, watchOS and macOS
+
 # Scripts
 ## JD-2006
 - [Pwnagotchi-JSON-to-Wigle-CSV.py](https://github.com/JD-2006/pwnagotchi-plugins-scripts_JD-2006/blob/main/Scripts/Pwnagotchi-JSON-to-Wigle-CSV.py)

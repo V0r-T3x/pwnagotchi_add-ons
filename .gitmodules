@@ -91,3 +91,15 @@
 	path = Scripts/wpa-2/tele.py
 	url = https://github.com/wpa-2/tele.py.git
 	branch = main
+[submodule "Apps/CyrisXD/Pwnagetty"]
+	path = Apps/CyrisXD/Pwnagetty
+	url = https://github.com/CyrisXD/Pwnagetty.git
+	branch = master
+[submodule "Apps/neexz/pwnagotchi-ui-designer"]
+	path = Apps/neexz/pwnagotchi-ui-designer
+	url = https://github.com/neexz/pwnagotchi-ui-designer.git
+	branch = main
+[submodule "Apps/silsha/pwnagotchi.app"]
+	path = Apps/silsha/pwnagotchi.app
+	url = https://github.com/silsha/pwnagotchi.app.git
+	branch = master
