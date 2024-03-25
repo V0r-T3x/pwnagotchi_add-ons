@@ -75,6 +75,7 @@ def get_repository_description(owner, repo_name):
 def add_submodule(addon_path, folder_name):
     parts = addon_path.split("/")
     owner = parts[3]
+    author = owner
     repo_name = parts[4].split(".git")[0]
     if len(parts) > 5: branch = parts[6]
     else: branch = "main"
@@ -114,7 +115,6 @@ def add_submodule(addon_path, folder_name):
             os.makedirs(author_folder)
         addon_name = repo_name
         description = get_repository_description(owner, repo_name)
-        author = owner
 
     #if owner is None or repo_name is None:
     #    print(f"Error: Unable to get repository information for {addon_path}")
