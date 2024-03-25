@@ -273,26 +273,26 @@ def main():
                 readme_file.write(f"  - Description: {mod_info['description']}\n\n")
 
         # Write app information to readme.md
-           readme_file.write("# Apps\n")
-           for owner, apps in sorted(app_info_dict.items()):
-               readme_file.write(f"## {owner}\n")
-               for app_info in sorted(apps, key=lambda x: x['repo_name']):
-                   readme_file.write(f"- [{app_info['addon_name']}]({app_info['path']})\n")
-                   readme_file.write(f"  - Author signature: {app_info['author']}\n")
-                   readme_file.write(f"  - Last Commit Date: {app_info['last_commit_date']}\n")
-                   readme_file.write(f"  - Repository path: {app_info['repo_path']}\n")
-                   readme_file.write(f"  - Description: {app_info['description']}\n\n")
+        readme_file.write("# Apps\n")
+        for owner, apps in sorted(app_info_dict.items()):
+            readme_file.write(f"## {owner}\n")
+            for app_info in sorted(apps, key=lambda x: x['repo_name']):
+               readme_file.write(f"- [{app_info['addon_name']}]({app_info['path']})\n")
+               readme_file.write(f"  - Author signature: {app_info['author']}\n")
+               readme_file.write(f"  - Last Commit Date: {app_info['last_commit_date']}\n")
+               readme_file.write(f"  - Repository path: {app_info['repo_path']}\n")
+               readme_file.write(f"  - Description: {app_info['description']}\n\n")
 
         # Write script information to readme.md
-           readme_file.write("# Scripts\n")
-           for owner, scripts in sorted(script_info_dict.items()):
-               readme_file.write(f"## {owner}\n")
-               for script_info in sorted(scripts, key=lambda x: x['repo_name']):
-                   readme_file.write(f"- [{script_info['addon_name']}]({script_info['path']})\n")
-                   readme_file.write(f"  - Author signature: {script_info['author']}\n")
-                   readme_file.write(f"  - Last Commit Date: {script_info['last_commit_date']}\n")
-                   readme_file.write(f"  - Repository path: {script_info['repo_path']}\n")
-                   readme_file.write(f"  - Description: {script_info['description']}\n\n")
+        readme_file.write("# Scripts\n")
+        for owner, scripts in sorted(script_info_dict.items()):
+            readme_file.write(f"## {owner}\n")
+            for script_info in sorted(scripts, key=lambda x: x['repo_name']):
+                readme_file.write(f"- [{script_info['addon_name']}]({script_info['path']})\n")
+                readme_file.write(f"  - Author signature: {script_info['author']}\n")
+                readme_file.write(f"  - Last Commit Date: {script_info['last_commit_date']}\n")
+                readme_file.write(f"  - Repository path: {script_info['repo_path']}\n")
+                readme_file.write(f"  - Description: {script_info['description']}\n\n")
 
 
     # Remove plugins submodules and author folders
