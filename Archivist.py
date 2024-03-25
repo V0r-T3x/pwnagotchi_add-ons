@@ -114,6 +114,7 @@ def add_submodule(addon_path, folder_name):
             os.makedirs(author_folder)
         addon_name = repo_name
         description = get_repository_description(owner, repo_name)
+        author = owner
 
     #if owner is None or repo_name is None:
     #    print(f"Error: Unable to get repository information for {addon_path}")
