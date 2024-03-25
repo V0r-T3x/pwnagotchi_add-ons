@@ -153,6 +153,7 @@ def add_submodule(addon_path, folder_name):
     return {
         "path": addon_path,
         "owner": owner,
+        "author": author,
         "addon_name": addon_name,
         "repo_name": repo_name,
         "repo_path": parts[0] + "//" + parts[2] + "/" + parts[3] + "/" + parts[4],
