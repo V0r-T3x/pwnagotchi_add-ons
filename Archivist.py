@@ -274,7 +274,7 @@ def main():
     remove_submodules(scripts_list, "Scripts")
 
     # Remove apps submodules and author folders
-    remove_submodules(appss_list, "Apps")
+    remove_submodules(apps_list, "Apps")
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
