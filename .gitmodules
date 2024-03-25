@@ -1,8 +1,4 @@
 
-[submodule "Plugins/itsdarklikehell/apprise-notify"]
-	path = Plugins/itsdarklikehell/apprise-notify
-	url = https://github.com/itsdarklikehell/apprise-notify.git
-	branch = main
 [submodule "Mods/FamosoMocoso/pwnagotchi_custom_ui"]
 	path = Mods/FamosoMocoso/pwnagotchi_custom_ui
 	url = https://github.com/FamosoMocoso/pwnagotchi_custom_ui.git
