@@ -276,4 +276,9 @@ list = [
 ]
 
 [apps]
-list = []
+list = [
+    "https://github.com/CyrisXD/Pwnagetty/blob/master",
+    "https://github.com/neexz/pwnagotchi-ui-designer/blob/main",
+    "https://github.com/silsha/pwnagotchi.app/blob/master",
+
+]
