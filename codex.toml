@@ -12,6 +12,20 @@ list = [
     "https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/auto-hotspot.py",
     "https://github.com/evilsocket/pwnagotchi/blob/master/pwnagotchi/plugins/default/auto-update.py",
     "https://github.com/troystauffer/home_base/blob/master/away_base.py",
+]
+list2 = [
+    "https://github.com/LegendEvent/pwnagotchi-custom-plugins/blob/main/achievements.py",
+    "https://github.com/AlienMajik/pwnagotchi_plugins/blob/main/adsbsniffer.py",
+    "https://github.com/bryzz42o/Pwnagotchi-fsociety-plugins/blob/main/AGE",
+    "https://github.com/hannadiamond/pwnagotchi-plugins/blob/main/plugins/age.py",
+    "https://github.com/Kaska89/pwnagotchi-EXPv2-plugin/blob/main/agev2.py",
+    "https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/aircrackonly.py",
+    "https://github.com/dadav/pwnagotchi-custom-plugins/blob/master/apfaker.py",
+    "https://github.com/itsdarklikehell/apprise-notify/blob/main/apprise-notify.py",
+    "https://github.com/evilsocket/pwnagotchi-plugins-contrib/blob/master/auto_backup.py",
+    "https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/auto-hotspot.py",
+    "https://github.com/evilsocket/pwnagotchi/blob/master/pwnagotchi/plugins/default/auto-update.py",
+    "https://github.com/troystauffer/home_base/blob/master/away_base.py",
     "https://github.com/itsdarklikehell/pwnagotchi-plugins/blob/master/banthex-de.py",
     "https://github.com/V0r-T3x/pwnagotchi_plugins/blob/main/plugins/banthex.py",
     "https://github.com/shir0tetsuo/pwnagotchi-plugins/blob/main/basiclight.py",
@@ -249,16 +263,16 @@ list = [
     "https://github.com/probablyoffline/pwnagotchi-setup/blob/main/waveshare3.sh",
     "https://github.com/evilsocket/pwnagotchi/blob/master/scripts/win_connection_share.ps1",
     "https://github.com/xenDE/pwnagotchi-tools/blob/master/wpa-sec.founds.insert.py",
-    "https://github.com/wpa-2/tele.py/blob/main/tele.py"
+    "https://github.com/wpa-2/tele.py/blob/main/tele.py",
 ]
 
 [mods]
 list = [
-    "https://github.com/FamosoMocoso/pwnagotchi_custom_ui",
-    "https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode",
-    "https://github.com/roodriiigooo/PWNAGOTCHI-CUSTOM-FACES-MOD",
-    "https://github.com/solution-libre/pwnagotchi-hdmi-viewer",
-    "https://github.com/NoxiousKarn/Showerthoughts"
+    "https://github.com/FamosoMocoso/pwnagotchi_custom_ui/blob/main",
+    "https://github.com/V0r-T3x/pwnagotchi_LCD_colorized_darkmode/blob/main",
+    "https://github.com/roodriiigooo/PWNAGOTCHI-CUSTOM-FACES-MOD/blob/main",
+    "https://github.com/solution-libre/pwnagotchi-hdmi-viewer/blob/master",
+    "https://github.com/NoxiousKarn/Showerthoughts/blob/main",
 ]
 
 [apps]
