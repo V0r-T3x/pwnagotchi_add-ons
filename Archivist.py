@@ -294,16 +294,16 @@ def main():
 
 
     # Remove plugins submodules and author folders
-    remove_submodules(plugins_list, "Plugins")
+    #remove_submodules(plugins_list, "Plugins")
 
     # Remove mods submodules and author folders
-    remove_submodules(mods_list, "Mods")
+    #remove_submodules(mods_list, "Mods")
 
     # Remove scripts submodules and author folders
-    remove_submodules(scripts_list, "Scripts")
+    #remove_submodules(scripts_list, "Scripts")
 
     # Remove apps submodules and author folders
-    remove_submodules(apps_list, "Apps")
+    #remove_submodules(apps_list, "Apps")
 
     # Commit and push changes
     subprocess.run(["git", "add", "."], cwd=os.getcwd())  # Set working directory
